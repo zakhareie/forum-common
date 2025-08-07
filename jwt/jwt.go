@@ -70,3 +70,7 @@ func (jm *JWTManager) Verify(tokenStr string) (*Claims, error) {
 	}
 	return claims, nil
 }
+
+func (jm *JWTManager) RefreshTTL() time.Duration {
+	return jm.refreshTTL
+}
