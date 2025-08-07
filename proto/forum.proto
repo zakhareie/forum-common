@@ -1,0 +1,71 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = "proto/";
+
+message Topic {
+  int64 id = 1;
+  int64 category_id = 2;
+  string title = 3;
+  string description = 4;
+  string created_at = 5;
+}
+
+message Post {
+  int64 id = 1;
+  int64 topic_id = 2;
+  int64 author_id = 3;
+  string title = 4;
+  string content = 5;
+  string created_at = 6;
+}
+
+message Category {
+  int64 id = 1;
+  string name = 2;
+}
+
+message GetTopicsRequest {
+  int64 category_id = 1;
+}
+
+message GetTopicsResponse {
+  repeated Topic topics = 1;
+}
+
+message CreateTopicRequest {
+  int64 category_id = 1;
+  string title = 2;
+  string description = 3;
+}
+
+message CreateTopicResponse {
+  Topic topic = 1;
+}
+
+message GetPostsRequest {
+  int64 topic_id = 1;
+}
+
+message GetPostsResponse {
+  repeated Post posts = 1;
+}
+
+message CreatePostRequest {
+  int64 topic_id = 1;
+  int64 author_id = 2;
+  string title = 3;
+  string content = 4;
+}
+
+message CreatePostResponse {
+  Post post = 1;
+}
+
+service ForumService {
+  rpc GetTopics(GetTopicsRequest) returns (GetTopicsResponse);
+  rpc CreateTopic(CreateTopicRequest) returns (CreateTopicResponse);
+  rpc GetPosts(GetPostsRequest) returns (GetPostsResponse);
+  rpc CreatePost(CreatePostRequest) returns (CreatePostResponse);
+}
