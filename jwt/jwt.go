@@ -7,17 +7,12 @@ import (
 	"github.com/golang-jwt/jwt/v5"
 )
 
-var (
-	ErrInvalidToken = errors.New("invalid token")
-)
-
 type Claims struct {
 	UserID int64  `json:"user_id"`
 	Role   string `json:"role"`
 	jwt.RegisteredClaims
 }
 
-// Интерфейс JWTManager теперь экспортируемый!
 type JWTManager interface {
 	GenerateAccessToken(userID int64, role string) (string, error)
 	GenerateRefreshToken(userID int64, role string) (string, error)
@@ -25,21 +20,21 @@ type JWTManager interface {
 	RefreshTTL() time.Duration
 }
 
-type jwtManager struct {
+type Manager struct {
 	secretKey  string
 	accessTTL  time.Duration
 	refreshTTL time.Duration
 }
 
-func NewJWTManager(secretKey string, accessTTL, refreshTTL time.Duration) JWTManager {
-	return &jwtManager{
+func NewJWTManager(secretKey string, accessTTL, refreshTTL time.Duration) *Manager {
+	return &Manager{
 		secretKey:  secretKey,
 		accessTTL:  accessTTL,
 		refreshTTL: refreshTTL,
 	}
 }
 
-func (jm *jwtManager) GenerateAccessToken(userID int64, role string) (string, error) {
+func (jm *Manager) GenerateAccessToken(userID int64, role string) (string, error) {
 	claims := &Claims{
 		UserID: userID,
 		Role:   role,
@@ -52,7 +47,7 @@ func (jm *jwtManager) GenerateAccessToken(userID int64, role string) (string, er
 	return token.SignedString([]byte(jm.secretKey))
 }
 
-func (jm *jwtManager) GenerateRefreshToken(userID int64, role string) (string, error) {
+func (jm *Manager) GenerateRefreshToken(userID int64, role string) (string, error) {
 	claims := &Claims{
 		UserID: userID,
 		Role:   role,
@@ -65,20 +60,20 @@ func (jm *jwtManager) GenerateRefreshToken(userID int64, role string) (string, e
 	return token.SignedString([]byte(jm.secretKey))
 }
 
-func (jm *jwtManager) Verify(tokenStr string) (*Claims, error) {
+func (jm *Manager) Verify(tokenStr string) (*Claims, error) {
 	token, err := jwt.ParseWithClaims(tokenStr, &Claims{}, func(token *jwt.Token) (interface{}, error) {
 		return []byte(jm.secretKey), nil
 	})
 	if err != nil {
-		return nil, ErrInvalidToken
+		return nil, errors.New("invalid token")
 	}
 	claims, ok := token.Claims.(*Claims)
 	if !ok || !token.Valid {
-		return nil, ErrInvalidToken
+		return nil, errors.New("invalid token")
 	}
 	return claims, nil
 }
 
-func (jm *jwtManager) RefreshTTL() time.Duration {
+func (jm *Manager) RefreshTTL() time.Duration {
 	return jm.refreshTTL
 }
