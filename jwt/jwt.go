@@ -17,7 +17,7 @@ type Claims struct {
 	jwt.RegisteredClaims
 }
 
-// Интерфейс для использования и моков
+// Интерфейс JWTManager теперь экспортируемый!
 type JWTManager interface {
 	GenerateAccessToken(userID int64, role string) (string, error)
 	GenerateRefreshToken(userID int64, role string) (string, error)
@@ -31,7 +31,6 @@ type jwtManager struct {
 	refreshTTL time.Duration
 }
 
-// NewJWTManager возвращает интерфейс JWTManager
 func NewJWTManager(secretKey string, accessTTL, refreshTTL time.Duration) JWTManager {
 	return &jwtManager{
 		secretKey:  secretKey,
@@ -40,7 +39,7 @@ func NewJWTManager(secretKey string, accessTTL, refreshTTL time.Duration) JWTMan
 	}
 }
 
-func (jm jwtManager) GenerateAccessToken(userID int64, role string) (string, error) {
+func (jm *jwtManager) GenerateAccessToken(userID int64, role string) (string, error) {
 	claims := &Claims{
 		UserID: userID,
 		Role:   role,
@@ -53,7 +52,7 @@ func (jm jwtManager) GenerateAccessToken(userID int64, role string) (string, err
 	return token.SignedString([]byte(jm.secretKey))
 }
 
-func (jm jwtManager) GenerateRefreshToken(userID int64, role string) (string, error) {
+func (jm *jwtManager) GenerateRefreshToken(userID int64, role string) (string, error) {
 	claims := &Claims{
 		UserID: userID,
 		Role:   role,
@@ -66,7 +65,7 @@ func (jm jwtManager) GenerateRefreshToken(userID int64, role string) (string, er
 	return token.SignedString([]byte(jm.secretKey))
 }
 
-func (jm jwtManager) Verify(tokenStr string) (*Claims, error) {
+func (jm *jwtManager) Verify(tokenStr string) (*Claims, error) {
 	token, err := jwt.ParseWithClaims(tokenStr, &Claims{}, func(token *jwt.Token) (interface{}, error) {
 		return []byte(jm.secretKey), nil
 	})
@@ -80,6 +79,6 @@ func (jm jwtManager) Verify(tokenStr string) (*Claims, error) {
 	return claims, nil
 }
 
-func (jm jwtManager) RefreshTTL() time.Duration {
+func (jm *jwtManager) RefreshTTL() time.Duration {
 	return jm.refreshTTL
 }
