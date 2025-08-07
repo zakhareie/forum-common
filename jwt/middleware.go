@@ -6,6 +6,7 @@ import (
 	"strings"
 
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/metadata"
 )
 
 type contextKey string
@@ -24,7 +25,7 @@ func UnaryJWTInterceptor(jm JWTManager) grpc.UnaryServerInterceptor {
 		info *grpc.UnaryServerInfo,
 		handler grpc.UnaryHandler,
 	) (interface{}, error) {
-		md, ok := GetMetadataFromContext(ctx)
+		md, ok := metadata.FromIncomingContext(ctx)
 		if !ok {
 			return nil, ErrNoAuthHeader
 		}
@@ -43,14 +44,11 @@ func UnaryJWTInterceptor(jm JWTManager) grpc.UnaryServerInterceptor {
 	}
 }
 
-func GetMetadataFromContext(ctx context.Context) (map[string][]string, bool) {
-	return map[string][]string{}, false
-}
-
 func UserIDFromContext(ctx context.Context) (int64, bool) {
 	id, ok := ctx.Value(userIDKey).(int64)
 	return id, ok
 }
+
 func RoleFromContext(ctx context.Context) (string, bool) {
 	role, ok := ctx.Value(roleKey).(string)
 	return role, ok
