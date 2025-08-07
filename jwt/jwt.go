@@ -17,21 +17,28 @@ type Claims struct {
 	jwt.RegisteredClaims
 }
 
-type JWTManager struct {
+type JWTManager interface {
+	GenerateAccessToken(userID int64, role string) (string, error)
+	GenerateRefreshToken(userID int64, role string) (string, error)
+	Verify(tokenStr string) (*Claims, error)
+	RefreshTTL() time.Duration
+}
+
+type jwtManager struct {
 	secretKey  string
 	accessTTL  time.Duration
 	refreshTTL time.Duration
 }
 
-func NewJWTManager(secretKey string, accessTTL, refreshTTL time.Duration) *JWTManager {
-	return &JWTManager{
+func NewJWTManager(secretKey string, accessTTL, refreshTTL time.Duration) JWTManager {
+	return &jwtManager{
 		secretKey:  secretKey,
 		accessTTL:  accessTTL,
 		refreshTTL: refreshTTL,
 	}
 }
 
-func (jm *JWTManager) GenerateAccessToken(userID int64, role string) (string, error) {
+func (jm *jwtManager) GenerateAccessToken(userID int64, role string) (string, error) {
 	claims := &Claims{
 		UserID: userID,
 		Role:   role,
@@ -44,7 +51,7 @@ func (jm *JWTManager) GenerateAccessToken(userID int64, role string) (string, er
 	return token.SignedString([]byte(jm.secretKey))
 }
 
-func (jm *JWTManager) GenerateRefreshToken(userID int64, role string) (string, error) {
+func (jm *jwtManager) GenerateRefreshToken(userID int64, role string) (string, error) {
 	claims := &Claims{
 		UserID: userID,
 		Role:   role,
@@ -57,7 +64,7 @@ func (jm *JWTManager) GenerateRefreshToken(userID int64, role string) (string, e
 	return token.SignedString([]byte(jm.secretKey))
 }
 
-func (jm *JWTManager) Verify(tokenStr string) (*Claims, error) {
+func (jm *jwtManager) Verify(tokenStr string) (*Claims, error) {
 	token, err := jwt.ParseWithClaims(tokenStr, &Claims{}, func(token *jwt.Token) (interface{}, error) {
 		return []byte(jm.secretKey), nil
 	})
@@ -71,6 +78,6 @@ func (jm *JWTManager) Verify(tokenStr string) (*Claims, error) {
 	return claims, nil
 }
 
-func (jm *JWTManager) RefreshTTL() time.Duration {
+func (jm *jwtManager) RefreshTTL() time.Duration {
 	return jm.refreshTTL
 }

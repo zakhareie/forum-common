@@ -17,7 +17,7 @@ var (
 	roleKey         = contextKey("role")
 )
 
-func UnaryJWTInterceptor(jm *JWTManager) grpc.UnaryServerInterceptor {
+func UnaryJWTInterceptor(jm JWTManager) grpc.UnaryServerInterceptor {
 	return func(
 		ctx context.Context,
 		req interface{},
