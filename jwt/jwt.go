@@ -17,6 +17,7 @@ type Claims struct {
 	jwt.RegisteredClaims
 }
 
+// Интерфейс для использования и моков
 type JWTManager interface {
 	GenerateAccessToken(userID int64, role string) (string, error)
 	GenerateRefreshToken(userID int64, role string) (string, error)
@@ -30,6 +31,7 @@ type jwtManager struct {
 	refreshTTL time.Duration
 }
 
+// NewJWTManager возвращает интерфейс JWTManager
 func NewJWTManager(secretKey string, accessTTL, refreshTTL time.Duration) JWTManager {
 	return &jwtManager{
 		secretKey:  secretKey,

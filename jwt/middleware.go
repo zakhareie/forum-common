@@ -18,6 +18,7 @@ var (
 	roleKey         = contextKey("role")
 )
 
+// gRPC middleware для проверки JWT токена
 func UnaryJWTInterceptor(jm JWTManager) grpc.UnaryServerInterceptor {
 	return func(
 		ctx context.Context,
