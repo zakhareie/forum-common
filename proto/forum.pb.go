@@ -625,6 +625,274 @@ func (x *CreatePostResponse) GetPost() *Post {
 	return nil
 }
 
+type Comment struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	PostId        int64                  `protobuf:"varint,2,opt,name=post_id,json=postId,proto3" json:"post_id,omitempty"`
+	AuthorId      int64                  `protobuf:"varint,3,opt,name=author_id,json=authorId,proto3" json:"author_id,omitempty"`
+	Content       string                 `protobuf:"bytes,4,opt,name=content,proto3" json:"content,omitempty"`
+	CreatedAt     string                 `protobuf:"bytes,5,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Comment) Reset() {
+	*x = Comment{}
+	mi := &file_proto_forum_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Comment) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Comment) ProtoMessage() {}
+
+func (x *Comment) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_forum_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Comment.ProtoReflect.Descriptor instead.
+func (*Comment) Descriptor() ([]byte, []int) {
+	return file_proto_forum_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *Comment) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *Comment) GetPostId() int64 {
+	if x != nil {
+		return x.PostId
+	}
+	return 0
+}
+
+func (x *Comment) GetAuthorId() int64 {
+	if x != nil {
+		return x.AuthorId
+	}
+	return 0
+}
+
+func (x *Comment) GetContent() string {
+	if x != nil {
+		return x.Content
+	}
+	return ""
+}
+
+func (x *Comment) GetCreatedAt() string {
+	if x != nil {
+		return x.CreatedAt
+	}
+	return ""
+}
+
+type GetCommentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	PostId        int64                  `protobuf:"varint,1,opt,name=post_id,json=postId,proto3" json:"post_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCommentsRequest) Reset() {
+	*x = GetCommentsRequest{}
+	mi := &file_proto_forum_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCommentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCommentsRequest) ProtoMessage() {}
+
+func (x *GetCommentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_forum_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCommentsRequest.ProtoReflect.Descriptor instead.
+func (*GetCommentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_forum_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *GetCommentsRequest) GetPostId() int64 {
+	if x != nil {
+		return x.PostId
+	}
+	return 0
+}
+
+type GetCommentsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Comments      []*Comment             `protobuf:"bytes,1,rep,name=comments,proto3" json:"comments,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCommentsResponse) Reset() {
+	*x = GetCommentsResponse{}
+	mi := &file_proto_forum_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCommentsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCommentsResponse) ProtoMessage() {}
+
+func (x *GetCommentsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_forum_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCommentsResponse.ProtoReflect.Descriptor instead.
+func (*GetCommentsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_forum_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *GetCommentsResponse) GetComments() []*Comment {
+	if x != nil {
+		return x.Comments
+	}
+	return nil
+}
+
+type CreateCommentRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	PostId        int64                  `protobuf:"varint,1,opt,name=post_id,json=postId,proto3" json:"post_id,omitempty"`
+	AuthorId      int64                  `protobuf:"varint,2,opt,name=author_id,json=authorId,proto3" json:"author_id,omitempty"`
+	Content       string                 `protobuf:"bytes,3,opt,name=content,proto3" json:"content,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateCommentRequest) Reset() {
+	*x = CreateCommentRequest{}
+	mi := &file_proto_forum_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateCommentRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateCommentRequest) ProtoMessage() {}
+
+func (x *CreateCommentRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_forum_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateCommentRequest.ProtoReflect.Descriptor instead.
+func (*CreateCommentRequest) Descriptor() ([]byte, []int) {
+	return file_proto_forum_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *CreateCommentRequest) GetPostId() int64 {
+	if x != nil {
+		return x.PostId
+	}
+	return 0
+}
+
+func (x *CreateCommentRequest) GetAuthorId() int64 {
+	if x != nil {
+		return x.AuthorId
+	}
+	return 0
+}
+
+func (x *CreateCommentRequest) GetContent() string {
+	if x != nil {
+		return x.Content
+	}
+	return ""
+}
+
+type CreateCommentResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Comment       *Comment               `protobuf:"bytes,1,opt,name=comment,proto3" json:"comment,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateCommentResponse) Reset() {
+	*x = CreateCommentResponse{}
+	mi := &file_proto_forum_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateCommentResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateCommentResponse) ProtoMessage() {}
+
+func (x *CreateCommentResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_forum_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateCommentResponse.ProtoReflect.Descriptor instead.
+func (*CreateCommentResponse) Descriptor() ([]byte, []int) {
+	return file_proto_forum_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *CreateCommentResponse) GetComment() *Comment {
+	if x != nil {
+		return x.Comment
+	}
+	return nil
+}
+
 var File_proto_forum_proto protoreflect.FileDescriptor
 
 const file_proto_forum_proto_rawDesc = "" +
@@ -671,13 +939,32 @@ const file_proto_forum_proto_rawDesc = "" +
 	"\x05title\x18\x03 \x01(\tR\x05title\x12\x18\n" +
 	"\acontent\x18\x04 \x01(\tR\acontent\"5\n" +
 	"\x12CreatePostResponse\x12\x1f\n" +
-	"\x04post\x18\x01 \x01(\v2\v.proto.PostR\x04post2\x94\x02\n" +
+	"\x04post\x18\x01 \x01(\v2\v.proto.PostR\x04post\"\x88\x01\n" +
+	"\aComment\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x17\n" +
+	"\apost_id\x18\x02 \x01(\x03R\x06postId\x12\x1b\n" +
+	"\tauthor_id\x18\x03 \x01(\x03R\bauthorId\x12\x18\n" +
+	"\acontent\x18\x04 \x01(\tR\acontent\x12\x1d\n" +
+	"\n" +
+	"created_at\x18\x05 \x01(\tR\tcreatedAt\"-\n" +
+	"\x12GetCommentsRequest\x12\x17\n" +
+	"\apost_id\x18\x01 \x01(\x03R\x06postId\"A\n" +
+	"\x13GetCommentsResponse\x12*\n" +
+	"\bcomments\x18\x01 \x03(\v2\x0e.proto.CommentR\bcomments\"f\n" +
+	"\x14CreateCommentRequest\x12\x17\n" +
+	"\apost_id\x18\x01 \x01(\x03R\x06postId\x12\x1b\n" +
+	"\tauthor_id\x18\x02 \x01(\x03R\bauthorId\x12\x18\n" +
+	"\acontent\x18\x03 \x01(\tR\acontent\"A\n" +
+	"\x15CreateCommentResponse\x12(\n" +
+	"\acomment\x18\x01 \x01(\v2\x0e.proto.CommentR\acomment2\xa6\x03\n" +
 	"\fForumService\x12>\n" +
 	"\tGetTopics\x12\x17.proto.GetTopicsRequest\x1a\x18.proto.GetTopicsResponse\x12D\n" +
 	"\vCreateTopic\x12\x19.proto.CreateTopicRequest\x1a\x1a.proto.CreateTopicResponse\x12;\n" +
 	"\bGetPosts\x12\x16.proto.GetPostsRequest\x1a\x17.proto.GetPostsResponse\x12A\n" +
 	"\n" +
-	"CreatePost\x12\x18.proto.CreatePostRequest\x1a\x19.proto.CreatePostResponseB\bZ\x06proto/b\x06proto3"
+	"CreatePost\x12\x18.proto.CreatePostRequest\x1a\x19.proto.CreatePostResponse\x12D\n" +
+	"\vGetComments\x12\x19.proto.GetCommentsRequest\x1a\x1a.proto.GetCommentsResponse\x12J\n" +
+	"\rCreateComment\x12\x1b.proto.CreateCommentRequest\x1a\x1c.proto.CreateCommentResponseB\bZ\x06proto/b\x06proto3"
 
 var (
 	file_proto_forum_proto_rawDescOnce sync.Once
@@ -691,38 +978,49 @@ func file_proto_forum_proto_rawDescGZIP() []byte {
 	return file_proto_forum_proto_rawDescData
 }
 
-var file_proto_forum_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
+var file_proto_forum_proto_msgTypes = make([]protoimpl.MessageInfo, 16)
 var file_proto_forum_proto_goTypes = []any{
-	(*Topic)(nil),               // 0: proto.Topic
-	(*Post)(nil),                // 1: proto.Post
-	(*Category)(nil),            // 2: proto.Category
-	(*GetTopicsRequest)(nil),    // 3: proto.GetTopicsRequest
-	(*GetTopicsResponse)(nil),   // 4: proto.GetTopicsResponse
-	(*CreateTopicRequest)(nil),  // 5: proto.CreateTopicRequest
-	(*CreateTopicResponse)(nil), // 6: proto.CreateTopicResponse
-	(*GetPostsRequest)(nil),     // 7: proto.GetPostsRequest
-	(*GetPostsResponse)(nil),    // 8: proto.GetPostsResponse
-	(*CreatePostRequest)(nil),   // 9: proto.CreatePostRequest
-	(*CreatePostResponse)(nil),  // 10: proto.CreatePostResponse
+	(*Topic)(nil),                 // 0: proto.Topic
+	(*Post)(nil),                  // 1: proto.Post
+	(*Category)(nil),              // 2: proto.Category
+	(*GetTopicsRequest)(nil),      // 3: proto.GetTopicsRequest
+	(*GetTopicsResponse)(nil),     // 4: proto.GetTopicsResponse
+	(*CreateTopicRequest)(nil),    // 5: proto.CreateTopicRequest
+	(*CreateTopicResponse)(nil),   // 6: proto.CreateTopicResponse
+	(*GetPostsRequest)(nil),       // 7: proto.GetPostsRequest
+	(*GetPostsResponse)(nil),      // 8: proto.GetPostsResponse
+	(*CreatePostRequest)(nil),     // 9: proto.CreatePostRequest
+	(*CreatePostResponse)(nil),    // 10: proto.CreatePostResponse
+	(*Comment)(nil),               // 11: proto.Comment
+	(*GetCommentsRequest)(nil),    // 12: proto.GetCommentsRequest
+	(*GetCommentsResponse)(nil),   // 13: proto.GetCommentsResponse
+	(*CreateCommentRequest)(nil),  // 14: proto.CreateCommentRequest
+	(*CreateCommentResponse)(nil), // 15: proto.CreateCommentResponse
 }
 var file_proto_forum_proto_depIdxs = []int32{
 	0,  // 0: proto.GetTopicsResponse.topics:type_name -> proto.Topic
 	0,  // 1: proto.CreateTopicResponse.topic:type_name -> proto.Topic
 	1,  // 2: proto.GetPostsResponse.posts:type_name -> proto.Post
 	1,  // 3: proto.CreatePostResponse.post:type_name -> proto.Post
-	3,  // 4: proto.ForumService.GetTopics:input_type -> proto.GetTopicsRequest
-	5,  // 5: proto.ForumService.CreateTopic:input_type -> proto.CreateTopicRequest
-	7,  // 6: proto.ForumService.GetPosts:input_type -> proto.GetPostsRequest
-	9,  // 7: proto.ForumService.CreatePost:input_type -> proto.CreatePostRequest
-	4,  // 8: proto.ForumService.GetTopics:output_type -> proto.GetTopicsResponse
-	6,  // 9: proto.ForumService.CreateTopic:output_type -> proto.CreateTopicResponse
-	8,  // 10: proto.ForumService.GetPosts:output_type -> proto.GetPostsResponse
-	10, // 11: proto.ForumService.CreatePost:output_type -> proto.CreatePostResponse
-	8,  // [8:12] is the sub-list for method output_type
-	4,  // [4:8] is the sub-list for method input_type
-	4,  // [4:4] is the sub-list for extension type_name
-	4,  // [4:4] is the sub-list for extension extendee
-	0,  // [0:4] is the sub-list for field type_name
+	11, // 4: proto.GetCommentsResponse.comments:type_name -> proto.Comment
+	11, // 5: proto.CreateCommentResponse.comment:type_name -> proto.Comment
+	3,  // 6: proto.ForumService.GetTopics:input_type -> proto.GetTopicsRequest
+	5,  // 7: proto.ForumService.CreateTopic:input_type -> proto.CreateTopicRequest
+	7,  // 8: proto.ForumService.GetPosts:input_type -> proto.GetPostsRequest
+	9,  // 9: proto.ForumService.CreatePost:input_type -> proto.CreatePostRequest
+	12, // 10: proto.ForumService.GetComments:input_type -> proto.GetCommentsRequest
+	14, // 11: proto.ForumService.CreateComment:input_type -> proto.CreateCommentRequest
+	4,  // 12: proto.ForumService.GetTopics:output_type -> proto.GetTopicsResponse
+	6,  // 13: proto.ForumService.CreateTopic:output_type -> proto.CreateTopicResponse
+	8,  // 14: proto.ForumService.GetPosts:output_type -> proto.GetPostsResponse
+	10, // 15: proto.ForumService.CreatePost:output_type -> proto.CreatePostResponse
+	13, // 16: proto.ForumService.GetComments:output_type -> proto.GetCommentsResponse
+	15, // 17: proto.ForumService.CreateComment:output_type -> proto.CreateCommentResponse
+	12, // [12:18] is the sub-list for method output_type
+	6,  // [6:12] is the sub-list for method input_type
+	6,  // [6:6] is the sub-list for extension type_name
+	6,  // [6:6] is the sub-list for extension extendee
+	0,  // [0:6] is the sub-list for field type_name
 }
 
 func init() { file_proto_forum_proto_init() }
@@ -736,7 +1034,7 @@ func file_proto_forum_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_forum_proto_rawDesc), len(file_proto_forum_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   11,
+			NumMessages:   16,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

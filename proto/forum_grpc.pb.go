@@ -19,10 +19,12 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	ForumService_GetTopics_FullMethodName   = "/proto.ForumService/GetTopics"
-	ForumService_CreateTopic_FullMethodName = "/proto.ForumService/CreateTopic"
-	ForumService_GetPosts_FullMethodName    = "/proto.ForumService/GetPosts"
-	ForumService_CreatePost_FullMethodName  = "/proto.ForumService/CreatePost"
+	ForumService_GetTopics_FullMethodName     = "/proto.ForumService/GetTopics"
+	ForumService_CreateTopic_FullMethodName   = "/proto.ForumService/CreateTopic"
+	ForumService_GetPosts_FullMethodName      = "/proto.ForumService/GetPosts"
+	ForumService_CreatePost_FullMethodName    = "/proto.ForumService/CreatePost"
+	ForumService_GetComments_FullMethodName   = "/proto.ForumService/GetComments"
+	ForumService_CreateComment_FullMethodName = "/proto.ForumService/CreateComment"
 )
 
 // ForumServiceClient is the client API for ForumService service.
@@ -33,6 +35,8 @@ type ForumServiceClient interface {
 	CreateTopic(ctx context.Context, in *CreateTopicRequest, opts ...grpc.CallOption) (*CreateTopicResponse, error)
 	GetPosts(ctx context.Context, in *GetPostsRequest, opts ...grpc.CallOption) (*GetPostsResponse, error)
 	CreatePost(ctx context.Context, in *CreatePostRequest, opts ...grpc.CallOption) (*CreatePostResponse, error)
+	GetComments(ctx context.Context, in *GetCommentsRequest, opts ...grpc.CallOption) (*GetCommentsResponse, error)
+	CreateComment(ctx context.Context, in *CreateCommentRequest, opts ...grpc.CallOption) (*CreateCommentResponse, error)
 }
 
 type forumServiceClient struct {
@@ -83,6 +87,26 @@ func (c *forumServiceClient) CreatePost(ctx context.Context, in *CreatePostReque
 	return out, nil
 }
 
+func (c *forumServiceClient) GetComments(ctx context.Context, in *GetCommentsRequest, opts ...grpc.CallOption) (*GetCommentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCommentsResponse)
+	err := c.cc.Invoke(ctx, ForumService_GetComments_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *forumServiceClient) CreateComment(ctx context.Context, in *CreateCommentRequest, opts ...grpc.CallOption) (*CreateCommentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateCommentResponse)
+	err := c.cc.Invoke(ctx, ForumService_CreateComment_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ForumServiceServer is the server API for ForumService service.
 // All implementations must embed UnimplementedForumServiceServer
 // for forward compatibility.
@@ -91,6 +115,8 @@ type ForumServiceServer interface {
 	CreateTopic(context.Context, *CreateTopicRequest) (*CreateTopicResponse, error)
 	GetPosts(context.Context, *GetPostsRequest) (*GetPostsResponse, error)
 	CreatePost(context.Context, *CreatePostRequest) (*CreatePostResponse, error)
+	GetComments(context.Context, *GetCommentsRequest) (*GetCommentsResponse, error)
+	CreateComment(context.Context, *CreateCommentRequest) (*CreateCommentResponse, error)
 	mustEmbedUnimplementedForumServiceServer()
 }
 
@@ -112,6 +138,12 @@ func (UnimplementedForumServiceServer) GetPosts(context.Context, *GetPostsReques
 }
 func (UnimplementedForumServiceServer) CreatePost(context.Context, *CreatePostRequest) (*CreatePostResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreatePost not implemented")
+}
+func (UnimplementedForumServiceServer) GetComments(context.Context, *GetCommentsRequest) (*GetCommentsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetComments not implemented")
+}
+func (UnimplementedForumServiceServer) CreateComment(context.Context, *CreateCommentRequest) (*CreateCommentResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateComment not implemented")
 }
 func (UnimplementedForumServiceServer) mustEmbedUnimplementedForumServiceServer() {}
 func (UnimplementedForumServiceServer) testEmbeddedByValue()                      {}
@@ -206,6 +238,42 @@ func _ForumService_CreatePost_Handler(srv interface{}, ctx context.Context, dec 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ForumService_GetComments_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCommentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ForumServiceServer).GetComments(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ForumService_GetComments_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ForumServiceServer).GetComments(ctx, req.(*GetCommentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ForumService_CreateComment_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateCommentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ForumServiceServer).CreateComment(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ForumService_CreateComment_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ForumServiceServer).CreateComment(ctx, req.(*CreateCommentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // ForumService_ServiceDesc is the grpc.ServiceDesc for ForumService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -228,6 +296,14 @@ var ForumService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CreatePost",
 			Handler:    _ForumService_CreatePost_Handler,
+		},
+		{
+			MethodName: "GetComments",
+			Handler:    _ForumService_GetComments_Handler,
+		},
+		{
+			MethodName: "CreateComment",
+			Handler:    _ForumService_CreateComment_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
