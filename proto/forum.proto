@@ -63,30 +63,38 @@ message CreatePostResponse {
   Post post = 1;
 }
 
+message GetPostRequest {
+  int64 post_id = 1;
+}
+
+message GetPostResponse {
+  Post post = 1;
+}
+
 message Comment {
-    int64 id = 1;
-    int64 post_id = 2;
-    int64 author_id = 3;
-    string content = 4;
-    string created_at = 5;
+  int64 id = 1;
+  int64 post_id = 2;
+  int64 author_id = 3;
+  string content = 4;
+  string created_at = 5;
 }
 
 message GetCommentsRequest {
-    int64 post_id = 1;
+  int64 post_id = 1;
 }
 
 message GetCommentsResponse {
-    repeated Comment comments = 1;
+  repeated Comment comments = 1;
 }
 
 message CreateCommentRequest {
-    int64 post_id = 1;
-    int64 author_id = 2;
-    string content = 3;
+  int64 post_id = 1;
+  int64 author_id = 2;
+  string content = 3;
 }
 
 message CreateCommentResponse {
-    Comment comment = 1;
+  Comment comment = 1;
 }
 
 service ForumService {
@@ -94,6 +102,7 @@ service ForumService {
   rpc CreateTopic(CreateTopicRequest) returns (CreateTopicResponse);
   rpc GetPosts(GetPostsRequest) returns (GetPostsResponse);
   rpc CreatePost(CreatePostRequest) returns (CreatePostResponse);
+  rpc GetPost(GetPostRequest) returns (GetPostResponse); // <--- Новый метод!
   rpc GetComments(GetCommentsRequest) returns (GetCommentsResponse);
   rpc CreateComment(CreateCommentRequest) returns (CreateCommentResponse);
 }

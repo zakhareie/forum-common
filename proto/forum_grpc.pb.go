@@ -23,6 +23,7 @@ const (
 	ForumService_CreateTopic_FullMethodName   = "/proto.ForumService/CreateTopic"
 	ForumService_GetPosts_FullMethodName      = "/proto.ForumService/GetPosts"
 	ForumService_CreatePost_FullMethodName    = "/proto.ForumService/CreatePost"
+	ForumService_GetPost_FullMethodName       = "/proto.ForumService/GetPost"
 	ForumService_GetComments_FullMethodName   = "/proto.ForumService/GetComments"
 	ForumService_CreateComment_FullMethodName = "/proto.ForumService/CreateComment"
 )
@@ -35,6 +36,7 @@ type ForumServiceClient interface {
 	CreateTopic(ctx context.Context, in *CreateTopicRequest, opts ...grpc.CallOption) (*CreateTopicResponse, error)
 	GetPosts(ctx context.Context, in *GetPostsRequest, opts ...grpc.CallOption) (*GetPostsResponse, error)
 	CreatePost(ctx context.Context, in *CreatePostRequest, opts ...grpc.CallOption) (*CreatePostResponse, error)
+	GetPost(ctx context.Context, in *GetPostRequest, opts ...grpc.CallOption) (*GetPostResponse, error)
 	GetComments(ctx context.Context, in *GetCommentsRequest, opts ...grpc.CallOption) (*GetCommentsResponse, error)
 	CreateComment(ctx context.Context, in *CreateCommentRequest, opts ...grpc.CallOption) (*CreateCommentResponse, error)
 }
@@ -87,6 +89,16 @@ func (c *forumServiceClient) CreatePost(ctx context.Context, in *CreatePostReque
 	return out, nil
 }
 
+func (c *forumServiceClient) GetPost(ctx context.Context, in *GetPostRequest, opts ...grpc.CallOption) (*GetPostResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPostResponse)
+	err := c.cc.Invoke(ctx, ForumService_GetPost_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *forumServiceClient) GetComments(ctx context.Context, in *GetCommentsRequest, opts ...grpc.CallOption) (*GetCommentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetCommentsResponse)
@@ -115,6 +127,7 @@ type ForumServiceServer interface {
 	CreateTopic(context.Context, *CreateTopicRequest) (*CreateTopicResponse, error)
 	GetPosts(context.Context, *GetPostsRequest) (*GetPostsResponse, error)
 	CreatePost(context.Context, *CreatePostRequest) (*CreatePostResponse, error)
+	GetPost(context.Context, *GetPostRequest) (*GetPostResponse, error)
 	GetComments(context.Context, *GetCommentsRequest) (*GetCommentsResponse, error)
 	CreateComment(context.Context, *CreateCommentRequest) (*CreateCommentResponse, error)
 	mustEmbedUnimplementedForumServiceServer()
@@ -138,6 +151,9 @@ func (UnimplementedForumServiceServer) GetPosts(context.Context, *GetPostsReques
 }
 func (UnimplementedForumServiceServer) CreatePost(context.Context, *CreatePostRequest) (*CreatePostResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreatePost not implemented")
+}
+func (UnimplementedForumServiceServer) GetPost(context.Context, *GetPostRequest) (*GetPostResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPost not implemented")
 }
 func (UnimplementedForumServiceServer) GetComments(context.Context, *GetCommentsRequest) (*GetCommentsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetComments not implemented")
@@ -238,6 +254,24 @@ func _ForumService_CreatePost_Handler(srv interface{}, ctx context.Context, dec 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ForumService_GetPost_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPostRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ForumServiceServer).GetPost(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ForumService_GetPost_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ForumServiceServer).GetPost(ctx, req.(*GetPostRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _ForumService_GetComments_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetCommentsRequest)
 	if err := dec(in); err != nil {
@@ -296,6 +330,10 @@ var ForumService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CreatePost",
 			Handler:    _ForumService_CreatePost_Handler,
+		},
+		{
+			MethodName: "GetPost",
+			Handler:    _ForumService_GetPost_Handler,
 		},
 		{
 			MethodName: "GetComments",
