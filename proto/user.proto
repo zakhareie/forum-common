@@ -29,7 +29,16 @@ message UpdateUserResponse {
   User user = 1;
 }
 
+message CreateUserProfileRequest {
+  int64 id = 1;
+  string username = 2;
+  string role = 3;
+}
+
+message CreateUserProfileResponse {}
+
 service UserService {
   rpc GetUser(GetUserRequest) returns (GetUserResponse);
   rpc UpdateUser(UpdateUserRequest) returns (UpdateUserResponse);
+  rpc CreateUserProfile(CreateUserProfileRequest) returns (CreateUserProfileResponse);
 }
