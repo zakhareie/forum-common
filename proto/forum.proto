@@ -102,7 +102,7 @@ service ForumService {
   rpc CreateTopic(CreateTopicRequest) returns (CreateTopicResponse);
   rpc GetPosts(GetPostsRequest) returns (GetPostsResponse);
   rpc CreatePost(CreatePostRequest) returns (CreatePostResponse);
-  rpc GetPost(GetPostRequest) returns (GetPostResponse); // <--- Новый метод!
+  rpc GetPost(GetPostRequest) returns (GetPostResponse);
   rpc GetComments(GetCommentsRequest) returns (GetCommentsResponse);
   rpc CreateComment(CreateCommentRequest) returns (CreateCommentResponse);
 }
