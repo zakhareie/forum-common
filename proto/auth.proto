@@ -35,8 +35,16 @@ message RefreshTokenResponse {
   string refresh_token = 2;
 }
 
+message UpdateUserProfileRequest {
+  int64 id = 1;
+  string username = 2;
+  string role = 3;
+}
+message UpdateUserProfileResponse {}
+
 service AuthService {
   rpc Register(RegisterRequest) returns (RegisterResponse);
   rpc Login(LoginRequest) returns (LoginResponse);
   rpc RefreshToken(RefreshTokenRequest) returns (RefreshTokenResponse);
+  rpc UpdateUserProfile(UpdateUserProfileRequest) returns (UpdateUserProfileResponse);
 }

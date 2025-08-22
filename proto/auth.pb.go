@@ -341,6 +341,102 @@ func (x *RefreshTokenResponse) GetRefreshToken() string {
 	return ""
 }
 
+type UpdateUserProfileRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Username      string                 `protobuf:"bytes,2,opt,name=username,proto3" json:"username,omitempty"`
+	Role          string                 `protobuf:"bytes,3,opt,name=role,proto3" json:"role,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateUserProfileRequest) Reset() {
+	*x = UpdateUserProfileRequest{}
+	mi := &file_proto_auth_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateUserProfileRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateUserProfileRequest) ProtoMessage() {}
+
+func (x *UpdateUserProfileRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_auth_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateUserProfileRequest.ProtoReflect.Descriptor instead.
+func (*UpdateUserProfileRequest) Descriptor() ([]byte, []int) {
+	return file_proto_auth_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *UpdateUserProfileRequest) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *UpdateUserProfileRequest) GetUsername() string {
+	if x != nil {
+		return x.Username
+	}
+	return ""
+}
+
+func (x *UpdateUserProfileRequest) GetRole() string {
+	if x != nil {
+		return x.Role
+	}
+	return ""
+}
+
+type UpdateUserProfileResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateUserProfileResponse) Reset() {
+	*x = UpdateUserProfileResponse{}
+	mi := &file_proto_auth_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateUserProfileResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateUserProfileResponse) ProtoMessage() {}
+
+func (x *UpdateUserProfileResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_auth_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateUserProfileResponse.ProtoReflect.Descriptor instead.
+func (*UpdateUserProfileResponse) Descriptor() ([]byte, []int) {
+	return file_proto_auth_proto_rawDescGZIP(), []int{7}
+}
+
 var File_proto_auth_proto protoreflect.FileDescriptor
 
 const file_proto_auth_proto_rawDesc = "" +
@@ -364,11 +460,17 @@ const file_proto_auth_proto_rawDesc = "" +
 	"\rrefresh_token\x18\x01 \x01(\tR\frefreshToken\"^\n" +
 	"\x14RefreshTokenResponse\x12!\n" +
 	"\faccess_token\x18\x01 \x01(\tR\vaccessToken\x12#\n" +
-	"\rrefresh_token\x18\x02 \x01(\tR\frefreshToken2\xc7\x01\n" +
+	"\rrefresh_token\x18\x02 \x01(\tR\frefreshToken\"Z\n" +
+	"\x18UpdateUserProfileRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x1a\n" +
+	"\busername\x18\x02 \x01(\tR\busername\x12\x12\n" +
+	"\x04role\x18\x03 \x01(\tR\x04role\"\x1b\n" +
+	"\x19UpdateUserProfileResponse2\x9f\x02\n" +
 	"\vAuthService\x12;\n" +
 	"\bRegister\x12\x16.proto.RegisterRequest\x1a\x17.proto.RegisterResponse\x122\n" +
 	"\x05Login\x12\x13.proto.LoginRequest\x1a\x14.proto.LoginResponse\x12G\n" +
-	"\fRefreshToken\x12\x1a.proto.RefreshTokenRequest\x1a\x1b.proto.RefreshTokenResponseB\bZ\x06proto/b\x06proto3"
+	"\fRefreshToken\x12\x1a.proto.RefreshTokenRequest\x1a\x1b.proto.RefreshTokenResponse\x12V\n" +
+	"\x11UpdateUserProfile\x12\x1f.proto.UpdateUserProfileRequest\x1a .proto.UpdateUserProfileResponseB\bZ\x06proto/b\x06proto3"
 
 var (
 	file_proto_auth_proto_rawDescOnce sync.Once
@@ -382,24 +484,28 @@ func file_proto_auth_proto_rawDescGZIP() []byte {
 	return file_proto_auth_proto_rawDescData
 }
 
-var file_proto_auth_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
+var file_proto_auth_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_proto_auth_proto_goTypes = []any{
-	(*RegisterRequest)(nil),      // 0: proto.RegisterRequest
-	(*RegisterResponse)(nil),     // 1: proto.RegisterResponse
-	(*LoginRequest)(nil),         // 2: proto.LoginRequest
-	(*LoginResponse)(nil),        // 3: proto.LoginResponse
-	(*RefreshTokenRequest)(nil),  // 4: proto.RefreshTokenRequest
-	(*RefreshTokenResponse)(nil), // 5: proto.RefreshTokenResponse
+	(*RegisterRequest)(nil),           // 0: proto.RegisterRequest
+	(*RegisterResponse)(nil),          // 1: proto.RegisterResponse
+	(*LoginRequest)(nil),              // 2: proto.LoginRequest
+	(*LoginResponse)(nil),             // 3: proto.LoginResponse
+	(*RefreshTokenRequest)(nil),       // 4: proto.RefreshTokenRequest
+	(*RefreshTokenResponse)(nil),      // 5: proto.RefreshTokenResponse
+	(*UpdateUserProfileRequest)(nil),  // 6: proto.UpdateUserProfileRequest
+	(*UpdateUserProfileResponse)(nil), // 7: proto.UpdateUserProfileResponse
 }
 var file_proto_auth_proto_depIdxs = []int32{
 	0, // 0: proto.AuthService.Register:input_type -> proto.RegisterRequest
 	2, // 1: proto.AuthService.Login:input_type -> proto.LoginRequest
 	4, // 2: proto.AuthService.RefreshToken:input_type -> proto.RefreshTokenRequest
-	1, // 3: proto.AuthService.Register:output_type -> proto.RegisterResponse
-	3, // 4: proto.AuthService.Login:output_type -> proto.LoginResponse
-	5, // 5: proto.AuthService.RefreshToken:output_type -> proto.RefreshTokenResponse
-	3, // [3:6] is the sub-list for method output_type
-	0, // [0:3] is the sub-list for method input_type
+	6, // 3: proto.AuthService.UpdateUserProfile:input_type -> proto.UpdateUserProfileRequest
+	1, // 4: proto.AuthService.Register:output_type -> proto.RegisterResponse
+	3, // 5: proto.AuthService.Login:output_type -> proto.LoginResponse
+	5, // 6: proto.AuthService.RefreshToken:output_type -> proto.RefreshTokenResponse
+	7, // 7: proto.AuthService.UpdateUserProfile:output_type -> proto.UpdateUserProfileResponse
+	4, // [4:8] is the sub-list for method output_type
+	0, // [0:4] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -416,7 +522,7 @@ func file_proto_auth_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_auth_proto_rawDesc), len(file_proto_auth_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   6,
+			NumMessages:   8,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

@@ -26,3 +26,8 @@ func (u *User) Validate() error {
 	validate := validator.New()
 	return validate.Struct(u)
 }
+
+func (u *User) ValidateUpdate() error {
+	validate := validator.New()
+	return validate.Var(u.Username, "required,min=3,max=32")
+}
