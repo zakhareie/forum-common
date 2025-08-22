@@ -17,7 +17,7 @@ const (
 type User struct {
 	ID        int64     `json:"id"`
 	Username  string    `json:"username" validate:"required,min=3,max=32"`
-	Password  string    `json:"password,omitempty" validate:"required,min=6"` // Hashed
+	Password  string    `json:"password,omitempty" validate:"required,min=6"`
 	Role      UserRole  `json:"role" validate:"required,oneof=guest user admin"`
 	CreatedAt time.Time `json:"created_at"`
 }
