@@ -503,13 +503,14 @@ const file_proto_user_proto_rawDesc = "" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12!\n" +
 	"\fold_password\x18\x02 \x01(\tR\voldPassword\x12!\n" +
 	"\fnew_password\x18\x03 \x01(\tR\vnewPassword\"\x18\n" +
-	"\x16ChangePasswordResponse2\xb1\x02\n" +
+	"\x16ChangePasswordResponse2\x89\x03\n" +
 	"\vUserService\x128\n" +
 	"\aGetUser\x12\x15.proto.GetUserRequest\x1a\x16.proto.GetUserResponse\x12A\n" +
 	"\n" +
 	"UpdateUser\x12\x18.proto.UpdateUserRequest\x1a\x19.proto.UpdateUserResponse\x12V\n" +
 	"\x11CreateUserProfile\x12\x1f.proto.CreateUserProfileRequest\x1a .proto.CreateUserProfileResponse\x12M\n" +
-	"\x0eChangePassword\x12\x1c.proto.ChangePasswordRequest\x1a\x1d.proto.ChangePasswordResponseB\bZ\x06proto/b\x06proto3"
+	"\x0eChangePassword\x12\x1c.proto.ChangePasswordRequest\x1a\x1d.proto.ChangePasswordResponse\x12V\n" +
+	"\x11UpdateUserProfile\x12\x1f.proto.UpdateUserProfileRequest\x1a .proto.UpdateUserProfileResponseB\bZ\x06proto/b\x06proto3"
 
 var (
 	file_proto_user_proto_rawDescOnce sync.Once
@@ -534,23 +535,27 @@ var file_proto_user_proto_goTypes = []any{
 	(*CreateUserProfileResponse)(nil), // 6: proto.CreateUserProfileResponse
 	(*ChangePasswordRequest)(nil),     // 7: proto.ChangePasswordRequest
 	(*ChangePasswordResponse)(nil),    // 8: proto.ChangePasswordResponse
+	(*UpdateUserProfileRequest)(nil),  // 9: proto.UpdateUserProfileRequest
+	(*UpdateUserProfileResponse)(nil), // 10: proto.UpdateUserProfileResponse
 }
 var file_proto_user_proto_depIdxs = []int32{
-	0, // 0: proto.GetUserResponse.user:type_name -> proto.User
-	0, // 1: proto.UpdateUserResponse.user:type_name -> proto.User
-	1, // 2: proto.UserService.GetUser:input_type -> proto.GetUserRequest
-	3, // 3: proto.UserService.UpdateUser:input_type -> proto.UpdateUserRequest
-	5, // 4: proto.UserService.CreateUserProfile:input_type -> proto.CreateUserProfileRequest
-	7, // 5: proto.UserService.ChangePassword:input_type -> proto.ChangePasswordRequest
-	2, // 6: proto.UserService.GetUser:output_type -> proto.GetUserResponse
-	4, // 7: proto.UserService.UpdateUser:output_type -> proto.UpdateUserResponse
-	6, // 8: proto.UserService.CreateUserProfile:output_type -> proto.CreateUserProfileResponse
-	8, // 9: proto.UserService.ChangePassword:output_type -> proto.ChangePasswordResponse
-	6, // [6:10] is the sub-list for method output_type
-	2, // [2:6] is the sub-list for method input_type
-	2, // [2:2] is the sub-list for extension type_name
-	2, // [2:2] is the sub-list for extension extendee
-	0, // [0:2] is the sub-list for field type_name
+	0,  // 0: proto.GetUserResponse.user:type_name -> proto.User
+	0,  // 1: proto.UpdateUserResponse.user:type_name -> proto.User
+	1,  // 2: proto.UserService.GetUser:input_type -> proto.GetUserRequest
+	3,  // 3: proto.UserService.UpdateUser:input_type -> proto.UpdateUserRequest
+	5,  // 4: proto.UserService.CreateUserProfile:input_type -> proto.CreateUserProfileRequest
+	7,  // 5: proto.UserService.ChangePassword:input_type -> proto.ChangePasswordRequest
+	9,  // 6: proto.UserService.UpdateUserProfile:input_type -> proto.UpdateUserProfileRequest
+	2,  // 7: proto.UserService.GetUser:output_type -> proto.GetUserResponse
+	4,  // 8: proto.UserService.UpdateUser:output_type -> proto.UpdateUserResponse
+	6,  // 9: proto.UserService.CreateUserProfile:output_type -> proto.CreateUserProfileResponse
+	8,  // 10: proto.UserService.ChangePassword:output_type -> proto.ChangePasswordResponse
+	10, // 11: proto.UserService.UpdateUserProfile:output_type -> proto.UpdateUserProfileResponse
+	7,  // [7:12] is the sub-list for method output_type
+	2,  // [2:7] is the sub-list for method input_type
+	2,  // [2:2] is the sub-list for extension type_name
+	2,  // [2:2] is the sub-list for extension extendee
+	0,  // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_proto_user_proto_init() }
