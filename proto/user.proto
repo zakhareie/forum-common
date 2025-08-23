@@ -4,6 +4,8 @@ package proto;
 
 option go_package = "proto/";
 
+import "proto/auth.proto";
+
 message User {
   int64 id = 1;
   string username = 2;
