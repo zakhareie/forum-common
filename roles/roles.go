@@ -1,7 +1,7 @@
 package roles
 
 const (
-	Guest = "guest" // guest
+	Guest = "guest"
 	User  = "user"
 	Admin = "admin"
 )
