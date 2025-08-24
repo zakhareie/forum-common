@@ -181,6 +181,82 @@ func (x *Post) GetCreatedAt() string {
 	return ""
 }
 
+type Comment struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	PostId        int64                  `protobuf:"varint,2,opt,name=post_id,json=postId,proto3" json:"post_id,omitempty"`
+	AuthorId      int64                  `protobuf:"varint,3,opt,name=author_id,json=authorId,proto3" json:"author_id,omitempty"`
+	Content       string                 `protobuf:"bytes,4,opt,name=content,proto3" json:"content,omitempty"`
+	CreatedAt     string                 `protobuf:"bytes,5,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Comment) Reset() {
+	*x = Comment{}
+	mi := &file_proto_forum_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Comment) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Comment) ProtoMessage() {}
+
+func (x *Comment) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_forum_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Comment.ProtoReflect.Descriptor instead.
+func (*Comment) Descriptor() ([]byte, []int) {
+	return file_proto_forum_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *Comment) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *Comment) GetPostId() int64 {
+	if x != nil {
+		return x.PostId
+	}
+	return 0
+}
+
+func (x *Comment) GetAuthorId() int64 {
+	if x != nil {
+		return x.AuthorId
+	}
+	return 0
+}
+
+func (x *Comment) GetContent() string {
+	if x != nil {
+		return x.Content
+	}
+	return ""
+}
+
+func (x *Comment) GetCreatedAt() string {
+	if x != nil {
+		return x.CreatedAt
+	}
+	return ""
+}
+
 type Category struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
@@ -191,7 +267,7 @@ type Category struct {
 
 func (x *Category) Reset() {
 	*x = Category{}
-	mi := &file_proto_forum_proto_msgTypes[2]
+	mi := &file_proto_forum_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -203,7 +279,7 @@ func (x *Category) String() string {
 func (*Category) ProtoMessage() {}
 
 func (x *Category) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_forum_proto_msgTypes[2]
+	mi := &file_proto_forum_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -216,7 +292,7 @@ func (x *Category) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Category.ProtoReflect.Descriptor instead.
 func (*Category) Descriptor() ([]byte, []int) {
-	return file_proto_forum_proto_rawDescGZIP(), []int{2}
+	return file_proto_forum_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *Category) GetId() int64 {
@@ -242,7 +318,7 @@ type GetTopicsRequest struct {
 
 func (x *GetTopicsRequest) Reset() {
 	*x = GetTopicsRequest{}
-	mi := &file_proto_forum_proto_msgTypes[3]
+	mi := &file_proto_forum_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -254,7 +330,7 @@ func (x *GetTopicsRequest) String() string {
 func (*GetTopicsRequest) ProtoMessage() {}
 
 func (x *GetTopicsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_forum_proto_msgTypes[3]
+	mi := &file_proto_forum_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -267,7 +343,7 @@ func (x *GetTopicsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTopicsRequest.ProtoReflect.Descriptor instead.
 func (*GetTopicsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_forum_proto_rawDescGZIP(), []int{3}
+	return file_proto_forum_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *GetTopicsRequest) GetCategoryId() int64 {
@@ -286,7 +362,7 @@ type GetTopicsResponse struct {
 
 func (x *GetTopicsResponse) Reset() {
 	*x = GetTopicsResponse{}
-	mi := &file_proto_forum_proto_msgTypes[4]
+	mi := &file_proto_forum_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -298,7 +374,7 @@ func (x *GetTopicsResponse) String() string {
 func (*GetTopicsResponse) ProtoMessage() {}
 
 func (x *GetTopicsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_forum_proto_msgTypes[4]
+	mi := &file_proto_forum_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -311,7 +387,7 @@ func (x *GetTopicsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTopicsResponse.ProtoReflect.Descriptor instead.
 func (*GetTopicsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_forum_proto_rawDescGZIP(), []int{4}
+	return file_proto_forum_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *GetTopicsResponse) GetTopics() []*Topic {
@@ -332,7 +408,7 @@ type CreateTopicRequest struct {
 
 func (x *CreateTopicRequest) Reset() {
 	*x = CreateTopicRequest{}
-	mi := &file_proto_forum_proto_msgTypes[5]
+	mi := &file_proto_forum_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -344,7 +420,7 @@ func (x *CreateTopicRequest) String() string {
 func (*CreateTopicRequest) ProtoMessage() {}
 
 func (x *CreateTopicRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_forum_proto_msgTypes[5]
+	mi := &file_proto_forum_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -357,7 +433,7 @@ func (x *CreateTopicRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateTopicRequest.ProtoReflect.Descriptor instead.
 func (*CreateTopicRequest) Descriptor() ([]byte, []int) {
-	return file_proto_forum_proto_rawDescGZIP(), []int{5}
+	return file_proto_forum_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *CreateTopicRequest) GetCategoryId() int64 {
@@ -390,7 +466,7 @@ type CreateTopicResponse struct {
 
 func (x *CreateTopicResponse) Reset() {
 	*x = CreateTopicResponse{}
-	mi := &file_proto_forum_proto_msgTypes[6]
+	mi := &file_proto_forum_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -402,7 +478,7 @@ func (x *CreateTopicResponse) String() string {
 func (*CreateTopicResponse) ProtoMessage() {}
 
 func (x *CreateTopicResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_forum_proto_msgTypes[6]
+	mi := &file_proto_forum_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -415,7 +491,7 @@ func (x *CreateTopicResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateTopicResponse.ProtoReflect.Descriptor instead.
 func (*CreateTopicResponse) Descriptor() ([]byte, []int) {
-	return file_proto_forum_proto_rawDescGZIP(), []int{6}
+	return file_proto_forum_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *CreateTopicResponse) GetTopic() *Topic {
@@ -423,6 +499,190 @@ func (x *CreateTopicResponse) GetTopic() *Topic {
 		return x.Topic
 	}
 	return nil
+}
+
+type UpdateTopicRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Title         string                 `protobuf:"bytes,2,opt,name=title,proto3" json:"title,omitempty"`
+	Description   string                 `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateTopicRequest) Reset() {
+	*x = UpdateTopicRequest{}
+	mi := &file_proto_forum_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateTopicRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateTopicRequest) ProtoMessage() {}
+
+func (x *UpdateTopicRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_forum_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateTopicRequest.ProtoReflect.Descriptor instead.
+func (*UpdateTopicRequest) Descriptor() ([]byte, []int) {
+	return file_proto_forum_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *UpdateTopicRequest) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *UpdateTopicRequest) GetTitle() string {
+	if x != nil {
+		return x.Title
+	}
+	return ""
+}
+
+func (x *UpdateTopicRequest) GetDescription() string {
+	if x != nil {
+		return x.Description
+	}
+	return ""
+}
+
+type UpdateTopicResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Topic         *Topic                 `protobuf:"bytes,1,opt,name=topic,proto3" json:"topic,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateTopicResponse) Reset() {
+	*x = UpdateTopicResponse{}
+	mi := &file_proto_forum_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateTopicResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateTopicResponse) ProtoMessage() {}
+
+func (x *UpdateTopicResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_forum_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateTopicResponse.ProtoReflect.Descriptor instead.
+func (*UpdateTopicResponse) Descriptor() ([]byte, []int) {
+	return file_proto_forum_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *UpdateTopicResponse) GetTopic() *Topic {
+	if x != nil {
+		return x.Topic
+	}
+	return nil
+}
+
+type DeleteTopicRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeleteTopicRequest) Reset() {
+	*x = DeleteTopicRequest{}
+	mi := &file_proto_forum_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeleteTopicRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteTopicRequest) ProtoMessage() {}
+
+func (x *DeleteTopicRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_forum_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteTopicRequest.ProtoReflect.Descriptor instead.
+func (*DeleteTopicRequest) Descriptor() ([]byte, []int) {
+	return file_proto_forum_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *DeleteTopicRequest) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+type DeleteTopicResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeleteTopicResponse) Reset() {
+	*x = DeleteTopicResponse{}
+	mi := &file_proto_forum_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeleteTopicResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteTopicResponse) ProtoMessage() {}
+
+func (x *DeleteTopicResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_forum_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteTopicResponse.ProtoReflect.Descriptor instead.
+func (*DeleteTopicResponse) Descriptor() ([]byte, []int) {
+	return file_proto_forum_proto_rawDescGZIP(), []int{11}
 }
 
 type GetPostsRequest struct {
@@ -434,7 +694,7 @@ type GetPostsRequest struct {
 
 func (x *GetPostsRequest) Reset() {
 	*x = GetPostsRequest{}
-	mi := &file_proto_forum_proto_msgTypes[7]
+	mi := &file_proto_forum_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -446,7 +706,7 @@ func (x *GetPostsRequest) String() string {
 func (*GetPostsRequest) ProtoMessage() {}
 
 func (x *GetPostsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_forum_proto_msgTypes[7]
+	mi := &file_proto_forum_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -459,7 +719,7 @@ func (x *GetPostsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPostsRequest.ProtoReflect.Descriptor instead.
 func (*GetPostsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_forum_proto_rawDescGZIP(), []int{7}
+	return file_proto_forum_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *GetPostsRequest) GetTopicId() int64 {
@@ -478,7 +738,7 @@ type GetPostsResponse struct {
 
 func (x *GetPostsResponse) Reset() {
 	*x = GetPostsResponse{}
-	mi := &file_proto_forum_proto_msgTypes[8]
+	mi := &file_proto_forum_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -490,7 +750,7 @@ func (x *GetPostsResponse) String() string {
 func (*GetPostsResponse) ProtoMessage() {}
 
 func (x *GetPostsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_forum_proto_msgTypes[8]
+	mi := &file_proto_forum_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -503,12 +763,100 @@ func (x *GetPostsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPostsResponse.ProtoReflect.Descriptor instead.
 func (*GetPostsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_forum_proto_rawDescGZIP(), []int{8}
+	return file_proto_forum_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *GetPostsResponse) GetPosts() []*Post {
 	if x != nil {
 		return x.Posts
+	}
+	return nil
+}
+
+type GetPostRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	PostId        int64                  `protobuf:"varint,1,opt,name=post_id,json=postId,proto3" json:"post_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPostRequest) Reset() {
+	*x = GetPostRequest{}
+	mi := &file_proto_forum_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPostRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPostRequest) ProtoMessage() {}
+
+func (x *GetPostRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_forum_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPostRequest.ProtoReflect.Descriptor instead.
+func (*GetPostRequest) Descriptor() ([]byte, []int) {
+	return file_proto_forum_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *GetPostRequest) GetPostId() int64 {
+	if x != nil {
+		return x.PostId
+	}
+	return 0
+}
+
+type GetPostResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Post          *Post                  `protobuf:"bytes,1,opt,name=post,proto3" json:"post,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPostResponse) Reset() {
+	*x = GetPostResponse{}
+	mi := &file_proto_forum_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPostResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPostResponse) ProtoMessage() {}
+
+func (x *GetPostResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_forum_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPostResponse.ProtoReflect.Descriptor instead.
+func (*GetPostResponse) Descriptor() ([]byte, []int) {
+	return file_proto_forum_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *GetPostResponse) GetPost() *Post {
+	if x != nil {
+		return x.Post
 	}
 	return nil
 }
@@ -525,7 +873,7 @@ type CreatePostRequest struct {
 
 func (x *CreatePostRequest) Reset() {
 	*x = CreatePostRequest{}
-	mi := &file_proto_forum_proto_msgTypes[9]
+	mi := &file_proto_forum_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -537,7 +885,7 @@ func (x *CreatePostRequest) String() string {
 func (*CreatePostRequest) ProtoMessage() {}
 
 func (x *CreatePostRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_forum_proto_msgTypes[9]
+	mi := &file_proto_forum_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -550,7 +898,7 @@ func (x *CreatePostRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreatePostRequest.ProtoReflect.Descriptor instead.
 func (*CreatePostRequest) Descriptor() ([]byte, []int) {
-	return file_proto_forum_proto_rawDescGZIP(), []int{9}
+	return file_proto_forum_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *CreatePostRequest) GetTopicId() int64 {
@@ -590,7 +938,7 @@ type CreatePostResponse struct {
 
 func (x *CreatePostResponse) Reset() {
 	*x = CreatePostResponse{}
-	mi := &file_proto_forum_proto_msgTypes[10]
+	mi := &file_proto_forum_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -602,7 +950,7 @@ func (x *CreatePostResponse) String() string {
 func (*CreatePostResponse) ProtoMessage() {}
 
 func (x *CreatePostResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_forum_proto_msgTypes[10]
+	mi := &file_proto_forum_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -615,7 +963,7 @@ func (x *CreatePostResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreatePostResponse.ProtoReflect.Descriptor instead.
 func (*CreatePostResponse) Descriptor() ([]byte, []int) {
-	return file_proto_forum_proto_rawDescGZIP(), []int{10}
+	return file_proto_forum_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *CreatePostResponse) GetPost() *Post {
@@ -625,120 +973,30 @@ func (x *CreatePostResponse) GetPost() *Post {
 	return nil
 }
 
-type GetPostRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	PostId        int64                  `protobuf:"varint,1,opt,name=post_id,json=postId,proto3" json:"post_id,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetPostRequest) Reset() {
-	*x = GetPostRequest{}
-	mi := &file_proto_forum_proto_msgTypes[11]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetPostRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetPostRequest) ProtoMessage() {}
-
-func (x *GetPostRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_forum_proto_msgTypes[11]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetPostRequest.ProtoReflect.Descriptor instead.
-func (*GetPostRequest) Descriptor() ([]byte, []int) {
-	return file_proto_forum_proto_rawDescGZIP(), []int{11}
-}
-
-func (x *GetPostRequest) GetPostId() int64 {
-	if x != nil {
-		return x.PostId
-	}
-	return 0
-}
-
-type GetPostResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Post          *Post                  `protobuf:"bytes,1,opt,name=post,proto3" json:"post,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetPostResponse) Reset() {
-	*x = GetPostResponse{}
-	mi := &file_proto_forum_proto_msgTypes[12]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetPostResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetPostResponse) ProtoMessage() {}
-
-func (x *GetPostResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_forum_proto_msgTypes[12]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetPostResponse.ProtoReflect.Descriptor instead.
-func (*GetPostResponse) Descriptor() ([]byte, []int) {
-	return file_proto_forum_proto_rawDescGZIP(), []int{12}
-}
-
-func (x *GetPostResponse) GetPost() *Post {
-	if x != nil {
-		return x.Post
-	}
-	return nil
-}
-
-type Comment struct {
+type UpdatePostRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	PostId        int64                  `protobuf:"varint,2,opt,name=post_id,json=postId,proto3" json:"post_id,omitempty"`
-	AuthorId      int64                  `protobuf:"varint,3,opt,name=author_id,json=authorId,proto3" json:"author_id,omitempty"`
-	Content       string                 `protobuf:"bytes,4,opt,name=content,proto3" json:"content,omitempty"`
-	CreatedAt     string                 `protobuf:"bytes,5,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	Title         string                 `protobuf:"bytes,2,opt,name=title,proto3" json:"title,omitempty"`
+	Content       string                 `protobuf:"bytes,3,opt,name=content,proto3" json:"content,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *Comment) Reset() {
-	*x = Comment{}
-	mi := &file_proto_forum_proto_msgTypes[13]
+func (x *UpdatePostRequest) Reset() {
+	*x = UpdatePostRequest{}
+	mi := &file_proto_forum_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *Comment) String() string {
+func (x *UpdatePostRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*Comment) ProtoMessage() {}
+func (*UpdatePostRequest) ProtoMessage() {}
 
-func (x *Comment) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_forum_proto_msgTypes[13]
+func (x *UpdatePostRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_forum_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -749,44 +1007,154 @@ func (x *Comment) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use Comment.ProtoReflect.Descriptor instead.
-func (*Comment) Descriptor() ([]byte, []int) {
-	return file_proto_forum_proto_rawDescGZIP(), []int{13}
+// Deprecated: Use UpdatePostRequest.ProtoReflect.Descriptor instead.
+func (*UpdatePostRequest) Descriptor() ([]byte, []int) {
+	return file_proto_forum_proto_rawDescGZIP(), []int{18}
 }
 
-func (x *Comment) GetId() int64 {
+func (x *UpdatePostRequest) GetId() int64 {
 	if x != nil {
 		return x.Id
 	}
 	return 0
 }
 
-func (x *Comment) GetPostId() int64 {
+func (x *UpdatePostRequest) GetTitle() string {
 	if x != nil {
-		return x.PostId
+		return x.Title
 	}
-	return 0
+	return ""
 }
 
-func (x *Comment) GetAuthorId() int64 {
-	if x != nil {
-		return x.AuthorId
-	}
-	return 0
-}
-
-func (x *Comment) GetContent() string {
+func (x *UpdatePostRequest) GetContent() string {
 	if x != nil {
 		return x.Content
 	}
 	return ""
 }
 
-func (x *Comment) GetCreatedAt() string {
+type UpdatePostResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Post          *Post                  `protobuf:"bytes,1,opt,name=post,proto3" json:"post,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdatePostResponse) Reset() {
+	*x = UpdatePostResponse{}
+	mi := &file_proto_forum_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdatePostResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdatePostResponse) ProtoMessage() {}
+
+func (x *UpdatePostResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_forum_proto_msgTypes[19]
 	if x != nil {
-		return x.CreatedAt
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
 	}
-	return ""
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdatePostResponse.ProtoReflect.Descriptor instead.
+func (*UpdatePostResponse) Descriptor() ([]byte, []int) {
+	return file_proto_forum_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *UpdatePostResponse) GetPost() *Post {
+	if x != nil {
+		return x.Post
+	}
+	return nil
+}
+
+type DeletePostRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeletePostRequest) Reset() {
+	*x = DeletePostRequest{}
+	mi := &file_proto_forum_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeletePostRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeletePostRequest) ProtoMessage() {}
+
+func (x *DeletePostRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_forum_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeletePostRequest.ProtoReflect.Descriptor instead.
+func (*DeletePostRequest) Descriptor() ([]byte, []int) {
+	return file_proto_forum_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *DeletePostRequest) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+type DeletePostResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeletePostResponse) Reset() {
+	*x = DeletePostResponse{}
+	mi := &file_proto_forum_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeletePostResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeletePostResponse) ProtoMessage() {}
+
+func (x *DeletePostResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_forum_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeletePostResponse.ProtoReflect.Descriptor instead.
+func (*DeletePostResponse) Descriptor() ([]byte, []int) {
+	return file_proto_forum_proto_rawDescGZIP(), []int{21}
 }
 
 type GetCommentsRequest struct {
@@ -798,7 +1166,7 @@ type GetCommentsRequest struct {
 
 func (x *GetCommentsRequest) Reset() {
 	*x = GetCommentsRequest{}
-	mi := &file_proto_forum_proto_msgTypes[14]
+	mi := &file_proto_forum_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -810,7 +1178,7 @@ func (x *GetCommentsRequest) String() string {
 func (*GetCommentsRequest) ProtoMessage() {}
 
 func (x *GetCommentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_forum_proto_msgTypes[14]
+	mi := &file_proto_forum_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -823,7 +1191,7 @@ func (x *GetCommentsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCommentsRequest.ProtoReflect.Descriptor instead.
 func (*GetCommentsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_forum_proto_rawDescGZIP(), []int{14}
+	return file_proto_forum_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *GetCommentsRequest) GetPostId() int64 {
@@ -842,7 +1210,7 @@ type GetCommentsResponse struct {
 
 func (x *GetCommentsResponse) Reset() {
 	*x = GetCommentsResponse{}
-	mi := &file_proto_forum_proto_msgTypes[15]
+	mi := &file_proto_forum_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -854,7 +1222,7 @@ func (x *GetCommentsResponse) String() string {
 func (*GetCommentsResponse) ProtoMessage() {}
 
 func (x *GetCommentsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_forum_proto_msgTypes[15]
+	mi := &file_proto_forum_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -867,7 +1235,7 @@ func (x *GetCommentsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCommentsResponse.ProtoReflect.Descriptor instead.
 func (*GetCommentsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_forum_proto_rawDescGZIP(), []int{15}
+	return file_proto_forum_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *GetCommentsResponse) GetComments() []*Comment {
@@ -888,7 +1256,7 @@ type CreateCommentRequest struct {
 
 func (x *CreateCommentRequest) Reset() {
 	*x = CreateCommentRequest{}
-	mi := &file_proto_forum_proto_msgTypes[16]
+	mi := &file_proto_forum_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -900,7 +1268,7 @@ func (x *CreateCommentRequest) String() string {
 func (*CreateCommentRequest) ProtoMessage() {}
 
 func (x *CreateCommentRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_forum_proto_msgTypes[16]
+	mi := &file_proto_forum_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -913,7 +1281,7 @@ func (x *CreateCommentRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateCommentRequest.ProtoReflect.Descriptor instead.
 func (*CreateCommentRequest) Descriptor() ([]byte, []int) {
-	return file_proto_forum_proto_rawDescGZIP(), []int{16}
+	return file_proto_forum_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *CreateCommentRequest) GetPostId() int64 {
@@ -946,7 +1314,7 @@ type CreateCommentResponse struct {
 
 func (x *CreateCommentResponse) Reset() {
 	*x = CreateCommentResponse{}
-	mi := &file_proto_forum_proto_msgTypes[17]
+	mi := &file_proto_forum_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -958,7 +1326,7 @@ func (x *CreateCommentResponse) String() string {
 func (*CreateCommentResponse) ProtoMessage() {}
 
 func (x *CreateCommentResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_forum_proto_msgTypes[17]
+	mi := &file_proto_forum_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -971,7 +1339,7 @@ func (x *CreateCommentResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateCommentResponse.ProtoReflect.Descriptor instead.
 func (*CreateCommentResponse) Descriptor() ([]byte, []int) {
-	return file_proto_forum_proto_rawDescGZIP(), []int{17}
+	return file_proto_forum_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *CreateCommentResponse) GetComment() *Comment {
@@ -979,6 +1347,526 @@ func (x *CreateCommentResponse) GetComment() *Comment {
 		return x.Comment
 	}
 	return nil
+}
+
+type UpdateCommentRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Content       string                 `protobuf:"bytes,2,opt,name=content,proto3" json:"content,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateCommentRequest) Reset() {
+	*x = UpdateCommentRequest{}
+	mi := &file_proto_forum_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateCommentRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateCommentRequest) ProtoMessage() {}
+
+func (x *UpdateCommentRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_forum_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateCommentRequest.ProtoReflect.Descriptor instead.
+func (*UpdateCommentRequest) Descriptor() ([]byte, []int) {
+	return file_proto_forum_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *UpdateCommentRequest) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *UpdateCommentRequest) GetContent() string {
+	if x != nil {
+		return x.Content
+	}
+	return ""
+}
+
+type UpdateCommentResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Comment       *Comment               `protobuf:"bytes,1,opt,name=comment,proto3" json:"comment,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateCommentResponse) Reset() {
+	*x = UpdateCommentResponse{}
+	mi := &file_proto_forum_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateCommentResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateCommentResponse) ProtoMessage() {}
+
+func (x *UpdateCommentResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_forum_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateCommentResponse.ProtoReflect.Descriptor instead.
+func (*UpdateCommentResponse) Descriptor() ([]byte, []int) {
+	return file_proto_forum_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *UpdateCommentResponse) GetComment() *Comment {
+	if x != nil {
+		return x.Comment
+	}
+	return nil
+}
+
+type DeleteCommentRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeleteCommentRequest) Reset() {
+	*x = DeleteCommentRequest{}
+	mi := &file_proto_forum_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeleteCommentRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteCommentRequest) ProtoMessage() {}
+
+func (x *DeleteCommentRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_forum_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteCommentRequest.ProtoReflect.Descriptor instead.
+func (*DeleteCommentRequest) Descriptor() ([]byte, []int) {
+	return file_proto_forum_proto_rawDescGZIP(), []int{28}
+}
+
+func (x *DeleteCommentRequest) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+type DeleteCommentResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeleteCommentResponse) Reset() {
+	*x = DeleteCommentResponse{}
+	mi := &file_proto_forum_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeleteCommentResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteCommentResponse) ProtoMessage() {}
+
+func (x *DeleteCommentResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_forum_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteCommentResponse.ProtoReflect.Descriptor instead.
+func (*DeleteCommentResponse) Descriptor() ([]byte, []int) {
+	return file_proto_forum_proto_rawDescGZIP(), []int{29}
+}
+
+type GetCategoriesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCategoriesRequest) Reset() {
+	*x = GetCategoriesRequest{}
+	mi := &file_proto_forum_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCategoriesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCategoriesRequest) ProtoMessage() {}
+
+func (x *GetCategoriesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_forum_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCategoriesRequest.ProtoReflect.Descriptor instead.
+func (*GetCategoriesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_forum_proto_rawDescGZIP(), []int{30}
+}
+
+type GetCategoriesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Categories    []*Category            `protobuf:"bytes,1,rep,name=categories,proto3" json:"categories,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCategoriesResponse) Reset() {
+	*x = GetCategoriesResponse{}
+	mi := &file_proto_forum_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCategoriesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCategoriesResponse) ProtoMessage() {}
+
+func (x *GetCategoriesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_forum_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCategoriesResponse.ProtoReflect.Descriptor instead.
+func (*GetCategoriesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_forum_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *GetCategoriesResponse) GetCategories() []*Category {
+	if x != nil {
+		return x.Categories
+	}
+	return nil
+}
+
+type CreateCategoryRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateCategoryRequest) Reset() {
+	*x = CreateCategoryRequest{}
+	mi := &file_proto_forum_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateCategoryRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateCategoryRequest) ProtoMessage() {}
+
+func (x *CreateCategoryRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_forum_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateCategoryRequest.ProtoReflect.Descriptor instead.
+func (*CreateCategoryRequest) Descriptor() ([]byte, []int) {
+	return file_proto_forum_proto_rawDescGZIP(), []int{32}
+}
+
+func (x *CreateCategoryRequest) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+type CreateCategoryResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Category      *Category              `protobuf:"bytes,1,opt,name=category,proto3" json:"category,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateCategoryResponse) Reset() {
+	*x = CreateCategoryResponse{}
+	mi := &file_proto_forum_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateCategoryResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateCategoryResponse) ProtoMessage() {}
+
+func (x *CreateCategoryResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_forum_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateCategoryResponse.ProtoReflect.Descriptor instead.
+func (*CreateCategoryResponse) Descriptor() ([]byte, []int) {
+	return file_proto_forum_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *CreateCategoryResponse) GetCategory() *Category {
+	if x != nil {
+		return x.Category
+	}
+	return nil
+}
+
+type UpdateCategoryRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateCategoryRequest) Reset() {
+	*x = UpdateCategoryRequest{}
+	mi := &file_proto_forum_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateCategoryRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateCategoryRequest) ProtoMessage() {}
+
+func (x *UpdateCategoryRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_forum_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateCategoryRequest.ProtoReflect.Descriptor instead.
+func (*UpdateCategoryRequest) Descriptor() ([]byte, []int) {
+	return file_proto_forum_proto_rawDescGZIP(), []int{34}
+}
+
+func (x *UpdateCategoryRequest) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *UpdateCategoryRequest) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+type UpdateCategoryResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Category      *Category              `protobuf:"bytes,1,opt,name=category,proto3" json:"category,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateCategoryResponse) Reset() {
+	*x = UpdateCategoryResponse{}
+	mi := &file_proto_forum_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateCategoryResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateCategoryResponse) ProtoMessage() {}
+
+func (x *UpdateCategoryResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_forum_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateCategoryResponse.ProtoReflect.Descriptor instead.
+func (*UpdateCategoryResponse) Descriptor() ([]byte, []int) {
+	return file_proto_forum_proto_rawDescGZIP(), []int{35}
+}
+
+func (x *UpdateCategoryResponse) GetCategory() *Category {
+	if x != nil {
+		return x.Category
+	}
+	return nil
+}
+
+type DeleteCategoryRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeleteCategoryRequest) Reset() {
+	*x = DeleteCategoryRequest{}
+	mi := &file_proto_forum_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeleteCategoryRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteCategoryRequest) ProtoMessage() {}
+
+func (x *DeleteCategoryRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_forum_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteCategoryRequest.ProtoReflect.Descriptor instead.
+func (*DeleteCategoryRequest) Descriptor() ([]byte, []int) {
+	return file_proto_forum_proto_rawDescGZIP(), []int{36}
+}
+
+func (x *DeleteCategoryRequest) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+type DeleteCategoryResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeleteCategoryResponse) Reset() {
+	*x = DeleteCategoryResponse{}
+	mi := &file_proto_forum_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeleteCategoryResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteCategoryResponse) ProtoMessage() {}
+
+func (x *DeleteCategoryResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_forum_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteCategoryResponse.ProtoReflect.Descriptor instead.
+func (*DeleteCategoryResponse) Descriptor() ([]byte, []int) {
+	return file_proto_forum_proto_rawDescGZIP(), []int{37}
 }
 
 var File_proto_forum_proto protoreflect.FileDescriptor
@@ -1001,7 +1889,14 @@ const file_proto_forum_proto_rawDesc = "" +
 	"\x05title\x18\x04 \x01(\tR\x05title\x12\x18\n" +
 	"\acontent\x18\x05 \x01(\tR\acontent\x12\x1d\n" +
 	"\n" +
-	"created_at\x18\x06 \x01(\tR\tcreatedAt\".\n" +
+	"created_at\x18\x06 \x01(\tR\tcreatedAt\"\x88\x01\n" +
+	"\aComment\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x17\n" +
+	"\apost_id\x18\x02 \x01(\x03R\x06postId\x12\x1b\n" +
+	"\tauthor_id\x18\x03 \x01(\x03R\bauthorId\x12\x18\n" +
+	"\acontent\x18\x04 \x01(\tR\acontent\x12\x1d\n" +
+	"\n" +
+	"created_at\x18\x05 \x01(\tR\tcreatedAt\".\n" +
 	"\bCategory\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\"3\n" +
@@ -1016,29 +1911,40 @@ const file_proto_forum_proto_rawDesc = "" +
 	"\x05title\x18\x02 \x01(\tR\x05title\x12 \n" +
 	"\vdescription\x18\x03 \x01(\tR\vdescription\"9\n" +
 	"\x13CreateTopicResponse\x12\"\n" +
-	"\x05topic\x18\x01 \x01(\v2\f.proto.TopicR\x05topic\",\n" +
+	"\x05topic\x18\x01 \x01(\v2\f.proto.TopicR\x05topic\"\\\n" +
+	"\x12UpdateTopicRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x14\n" +
+	"\x05title\x18\x02 \x01(\tR\x05title\x12 \n" +
+	"\vdescription\x18\x03 \x01(\tR\vdescription\"9\n" +
+	"\x13UpdateTopicResponse\x12\"\n" +
+	"\x05topic\x18\x01 \x01(\v2\f.proto.TopicR\x05topic\"$\n" +
+	"\x12DeleteTopicRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\"\x15\n" +
+	"\x13DeleteTopicResponse\",\n" +
 	"\x0fGetPostsRequest\x12\x19\n" +
 	"\btopic_id\x18\x01 \x01(\x03R\atopicId\"5\n" +
 	"\x10GetPostsResponse\x12!\n" +
-	"\x05posts\x18\x01 \x03(\v2\v.proto.PostR\x05posts\"{\n" +
+	"\x05posts\x18\x01 \x03(\v2\v.proto.PostR\x05posts\")\n" +
+	"\x0eGetPostRequest\x12\x17\n" +
+	"\apost_id\x18\x01 \x01(\x03R\x06postId\"2\n" +
+	"\x0fGetPostResponse\x12\x1f\n" +
+	"\x04post\x18\x01 \x01(\v2\v.proto.PostR\x04post\"{\n" +
 	"\x11CreatePostRequest\x12\x19\n" +
 	"\btopic_id\x18\x01 \x01(\x03R\atopicId\x12\x1b\n" +
 	"\tauthor_id\x18\x02 \x01(\x03R\bauthorId\x12\x14\n" +
 	"\x05title\x18\x03 \x01(\tR\x05title\x12\x18\n" +
 	"\acontent\x18\x04 \x01(\tR\acontent\"5\n" +
 	"\x12CreatePostResponse\x12\x1f\n" +
-	"\x04post\x18\x01 \x01(\v2\v.proto.PostR\x04post\")\n" +
-	"\x0eGetPostRequest\x12\x17\n" +
-	"\apost_id\x18\x01 \x01(\x03R\x06postId\"2\n" +
-	"\x0fGetPostResponse\x12\x1f\n" +
-	"\x04post\x18\x01 \x01(\v2\v.proto.PostR\x04post\"\x88\x01\n" +
-	"\aComment\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x17\n" +
-	"\apost_id\x18\x02 \x01(\x03R\x06postId\x12\x1b\n" +
-	"\tauthor_id\x18\x03 \x01(\x03R\bauthorId\x12\x18\n" +
-	"\acontent\x18\x04 \x01(\tR\acontent\x12\x1d\n" +
-	"\n" +
-	"created_at\x18\x05 \x01(\tR\tcreatedAt\"-\n" +
+	"\x04post\x18\x01 \x01(\v2\v.proto.PostR\x04post\"S\n" +
+	"\x11UpdatePostRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x14\n" +
+	"\x05title\x18\x02 \x01(\tR\x05title\x12\x18\n" +
+	"\acontent\x18\x03 \x01(\tR\acontent\"5\n" +
+	"\x12UpdatePostResponse\x12\x1f\n" +
+	"\x04post\x18\x01 \x01(\v2\v.proto.PostR\x04post\"#\n" +
+	"\x11DeletePostRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\"\x14\n" +
+	"\x12DeletePostResponse\"-\n" +
 	"\x12GetCommentsRequest\x12\x17\n" +
 	"\apost_id\x18\x01 \x01(\x03R\x06postId\"A\n" +
 	"\x13GetCommentsResponse\x12*\n" +
@@ -1048,16 +1954,53 @@ const file_proto_forum_proto_rawDesc = "" +
 	"\tauthor_id\x18\x02 \x01(\x03R\bauthorId\x12\x18\n" +
 	"\acontent\x18\x03 \x01(\tR\acontent\"A\n" +
 	"\x15CreateCommentResponse\x12(\n" +
-	"\acomment\x18\x01 \x01(\v2\x0e.proto.CommentR\acomment2\xe0\x03\n" +
+	"\acomment\x18\x01 \x01(\v2\x0e.proto.CommentR\acomment\"@\n" +
+	"\x14UpdateCommentRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x18\n" +
+	"\acontent\x18\x02 \x01(\tR\acontent\"A\n" +
+	"\x15UpdateCommentResponse\x12(\n" +
+	"\acomment\x18\x01 \x01(\v2\x0e.proto.CommentR\acomment\"&\n" +
+	"\x14DeleteCommentRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\"\x17\n" +
+	"\x15DeleteCommentResponse\"\x16\n" +
+	"\x14GetCategoriesRequest\"H\n" +
+	"\x15GetCategoriesResponse\x12/\n" +
+	"\n" +
+	"categories\x18\x01 \x03(\v2\x0f.proto.CategoryR\n" +
+	"categories\"+\n" +
+	"\x15CreateCategoryRequest\x12\x12\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\"E\n" +
+	"\x16CreateCategoryResponse\x12+\n" +
+	"\bcategory\x18\x01 \x01(\v2\x0f.proto.CategoryR\bcategory\";\n" +
+	"\x15UpdateCategoryRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\"E\n" +
+	"\x16UpdateCategoryResponse\x12+\n" +
+	"\bcategory\x18\x01 \x01(\v2\x0f.proto.CategoryR\bcategory\"'\n" +
+	"\x15DeleteCategoryRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\"\x18\n" +
+	"\x16DeleteCategoryResponse2\xc3\t\n" +
 	"\fForumService\x12>\n" +
 	"\tGetTopics\x12\x17.proto.GetTopicsRequest\x1a\x18.proto.GetTopicsResponse\x12D\n" +
-	"\vCreateTopic\x12\x19.proto.CreateTopicRequest\x1a\x1a.proto.CreateTopicResponse\x12;\n" +
-	"\bGetPosts\x12\x16.proto.GetPostsRequest\x1a\x17.proto.GetPostsResponse\x12A\n" +
+	"\vCreateTopic\x12\x19.proto.CreateTopicRequest\x1a\x1a.proto.CreateTopicResponse\x12D\n" +
+	"\vUpdateTopic\x12\x19.proto.UpdateTopicRequest\x1a\x1a.proto.UpdateTopicResponse\x12D\n" +
+	"\vDeleteTopic\x12\x19.proto.DeleteTopicRequest\x1a\x1a.proto.DeleteTopicResponse\x12;\n" +
+	"\bGetPosts\x12\x16.proto.GetPostsRequest\x1a\x17.proto.GetPostsResponse\x128\n" +
+	"\aGetPost\x12\x15.proto.GetPostRequest\x1a\x16.proto.GetPostResponse\x12A\n" +
 	"\n" +
-	"CreatePost\x12\x18.proto.CreatePostRequest\x1a\x19.proto.CreatePostResponse\x128\n" +
-	"\aGetPost\x12\x15.proto.GetPostRequest\x1a\x16.proto.GetPostResponse\x12D\n" +
+	"CreatePost\x12\x18.proto.CreatePostRequest\x1a\x19.proto.CreatePostResponse\x12A\n" +
+	"\n" +
+	"UpdatePost\x12\x18.proto.UpdatePostRequest\x1a\x19.proto.UpdatePostResponse\x12A\n" +
+	"\n" +
+	"DeletePost\x12\x18.proto.DeletePostRequest\x1a\x19.proto.DeletePostResponse\x12D\n" +
 	"\vGetComments\x12\x19.proto.GetCommentsRequest\x1a\x1a.proto.GetCommentsResponse\x12J\n" +
-	"\rCreateComment\x12\x1b.proto.CreateCommentRequest\x1a\x1c.proto.CreateCommentResponseB\bZ\x06proto/b\x06proto3"
+	"\rCreateComment\x12\x1b.proto.CreateCommentRequest\x1a\x1c.proto.CreateCommentResponse\x12J\n" +
+	"\rUpdateComment\x12\x1b.proto.UpdateCommentRequest\x1a\x1c.proto.UpdateCommentResponse\x12J\n" +
+	"\rDeleteComment\x12\x1b.proto.DeleteCommentRequest\x1a\x1c.proto.DeleteCommentResponse\x12J\n" +
+	"\rGetCategories\x12\x1b.proto.GetCategoriesRequest\x1a\x1c.proto.GetCategoriesResponse\x12M\n" +
+	"\x0eCreateCategory\x12\x1c.proto.CreateCategoryRequest\x1a\x1d.proto.CreateCategoryResponse\x12M\n" +
+	"\x0eUpdateCategory\x12\x1c.proto.UpdateCategoryRequest\x1a\x1d.proto.UpdateCategoryResponse\x12M\n" +
+	"\x0eDeleteCategory\x12\x1c.proto.DeleteCategoryRequest\x1a\x1d.proto.DeleteCategoryResponseB\bZ\x06proto/b\x06proto3"
 
 var (
 	file_proto_forum_proto_rawDescOnce sync.Once
@@ -1071,54 +2014,100 @@ func file_proto_forum_proto_rawDescGZIP() []byte {
 	return file_proto_forum_proto_rawDescData
 }
 
-var file_proto_forum_proto_msgTypes = make([]protoimpl.MessageInfo, 18)
+var file_proto_forum_proto_msgTypes = make([]protoimpl.MessageInfo, 38)
 var file_proto_forum_proto_goTypes = []any{
-	(*Topic)(nil),                 // 0: proto.Topic
-	(*Post)(nil),                  // 1: proto.Post
-	(*Category)(nil),              // 2: proto.Category
-	(*GetTopicsRequest)(nil),      // 3: proto.GetTopicsRequest
-	(*GetTopicsResponse)(nil),     // 4: proto.GetTopicsResponse
-	(*CreateTopicRequest)(nil),    // 5: proto.CreateTopicRequest
-	(*CreateTopicResponse)(nil),   // 6: proto.CreateTopicResponse
-	(*GetPostsRequest)(nil),       // 7: proto.GetPostsRequest
-	(*GetPostsResponse)(nil),      // 8: proto.GetPostsResponse
-	(*CreatePostRequest)(nil),     // 9: proto.CreatePostRequest
-	(*CreatePostResponse)(nil),    // 10: proto.CreatePostResponse
-	(*GetPostRequest)(nil),        // 11: proto.GetPostRequest
-	(*GetPostResponse)(nil),       // 12: proto.GetPostResponse
-	(*Comment)(nil),               // 13: proto.Comment
-	(*GetCommentsRequest)(nil),    // 14: proto.GetCommentsRequest
-	(*GetCommentsResponse)(nil),   // 15: proto.GetCommentsResponse
-	(*CreateCommentRequest)(nil),  // 16: proto.CreateCommentRequest
-	(*CreateCommentResponse)(nil), // 17: proto.CreateCommentResponse
+	(*Topic)(nil),                  // 0: proto.Topic
+	(*Post)(nil),                   // 1: proto.Post
+	(*Comment)(nil),                // 2: proto.Comment
+	(*Category)(nil),               // 3: proto.Category
+	(*GetTopicsRequest)(nil),       // 4: proto.GetTopicsRequest
+	(*GetTopicsResponse)(nil),      // 5: proto.GetTopicsResponse
+	(*CreateTopicRequest)(nil),     // 6: proto.CreateTopicRequest
+	(*CreateTopicResponse)(nil),    // 7: proto.CreateTopicResponse
+	(*UpdateTopicRequest)(nil),     // 8: proto.UpdateTopicRequest
+	(*UpdateTopicResponse)(nil),    // 9: proto.UpdateTopicResponse
+	(*DeleteTopicRequest)(nil),     // 10: proto.DeleteTopicRequest
+	(*DeleteTopicResponse)(nil),    // 11: proto.DeleteTopicResponse
+	(*GetPostsRequest)(nil),        // 12: proto.GetPostsRequest
+	(*GetPostsResponse)(nil),       // 13: proto.GetPostsResponse
+	(*GetPostRequest)(nil),         // 14: proto.GetPostRequest
+	(*GetPostResponse)(nil),        // 15: proto.GetPostResponse
+	(*CreatePostRequest)(nil),      // 16: proto.CreatePostRequest
+	(*CreatePostResponse)(nil),     // 17: proto.CreatePostResponse
+	(*UpdatePostRequest)(nil),      // 18: proto.UpdatePostRequest
+	(*UpdatePostResponse)(nil),     // 19: proto.UpdatePostResponse
+	(*DeletePostRequest)(nil),      // 20: proto.DeletePostRequest
+	(*DeletePostResponse)(nil),     // 21: proto.DeletePostResponse
+	(*GetCommentsRequest)(nil),     // 22: proto.GetCommentsRequest
+	(*GetCommentsResponse)(nil),    // 23: proto.GetCommentsResponse
+	(*CreateCommentRequest)(nil),   // 24: proto.CreateCommentRequest
+	(*CreateCommentResponse)(nil),  // 25: proto.CreateCommentResponse
+	(*UpdateCommentRequest)(nil),   // 26: proto.UpdateCommentRequest
+	(*UpdateCommentResponse)(nil),  // 27: proto.UpdateCommentResponse
+	(*DeleteCommentRequest)(nil),   // 28: proto.DeleteCommentRequest
+	(*DeleteCommentResponse)(nil),  // 29: proto.DeleteCommentResponse
+	(*GetCategoriesRequest)(nil),   // 30: proto.GetCategoriesRequest
+	(*GetCategoriesResponse)(nil),  // 31: proto.GetCategoriesResponse
+	(*CreateCategoryRequest)(nil),  // 32: proto.CreateCategoryRequest
+	(*CreateCategoryResponse)(nil), // 33: proto.CreateCategoryResponse
+	(*UpdateCategoryRequest)(nil),  // 34: proto.UpdateCategoryRequest
+	(*UpdateCategoryResponse)(nil), // 35: proto.UpdateCategoryResponse
+	(*DeleteCategoryRequest)(nil),  // 36: proto.DeleteCategoryRequest
+	(*DeleteCategoryResponse)(nil), // 37: proto.DeleteCategoryResponse
 }
 var file_proto_forum_proto_depIdxs = []int32{
 	0,  // 0: proto.GetTopicsResponse.topics:type_name -> proto.Topic
 	0,  // 1: proto.CreateTopicResponse.topic:type_name -> proto.Topic
-	1,  // 2: proto.GetPostsResponse.posts:type_name -> proto.Post
-	1,  // 3: proto.CreatePostResponse.post:type_name -> proto.Post
+	0,  // 2: proto.UpdateTopicResponse.topic:type_name -> proto.Topic
+	1,  // 3: proto.GetPostsResponse.posts:type_name -> proto.Post
 	1,  // 4: proto.GetPostResponse.post:type_name -> proto.Post
-	13, // 5: proto.GetCommentsResponse.comments:type_name -> proto.Comment
-	13, // 6: proto.CreateCommentResponse.comment:type_name -> proto.Comment
-	3,  // 7: proto.ForumService.GetTopics:input_type -> proto.GetTopicsRequest
-	5,  // 8: proto.ForumService.CreateTopic:input_type -> proto.CreateTopicRequest
-	7,  // 9: proto.ForumService.GetPosts:input_type -> proto.GetPostsRequest
-	9,  // 10: proto.ForumService.CreatePost:input_type -> proto.CreatePostRequest
-	11, // 11: proto.ForumService.GetPost:input_type -> proto.GetPostRequest
-	14, // 12: proto.ForumService.GetComments:input_type -> proto.GetCommentsRequest
-	16, // 13: proto.ForumService.CreateComment:input_type -> proto.CreateCommentRequest
-	4,  // 14: proto.ForumService.GetTopics:output_type -> proto.GetTopicsResponse
-	6,  // 15: proto.ForumService.CreateTopic:output_type -> proto.CreateTopicResponse
-	8,  // 16: proto.ForumService.GetPosts:output_type -> proto.GetPostsResponse
-	10, // 17: proto.ForumService.CreatePost:output_type -> proto.CreatePostResponse
-	12, // 18: proto.ForumService.GetPost:output_type -> proto.GetPostResponse
-	15, // 19: proto.ForumService.GetComments:output_type -> proto.GetCommentsResponse
-	17, // 20: proto.ForumService.CreateComment:output_type -> proto.CreateCommentResponse
-	14, // [14:21] is the sub-list for method output_type
-	7,  // [7:14] is the sub-list for method input_type
-	7,  // [7:7] is the sub-list for extension type_name
-	7,  // [7:7] is the sub-list for extension extendee
-	0,  // [0:7] is the sub-list for field type_name
+	1,  // 5: proto.CreatePostResponse.post:type_name -> proto.Post
+	1,  // 6: proto.UpdatePostResponse.post:type_name -> proto.Post
+	2,  // 7: proto.GetCommentsResponse.comments:type_name -> proto.Comment
+	2,  // 8: proto.CreateCommentResponse.comment:type_name -> proto.Comment
+	2,  // 9: proto.UpdateCommentResponse.comment:type_name -> proto.Comment
+	3,  // 10: proto.GetCategoriesResponse.categories:type_name -> proto.Category
+	3,  // 11: proto.CreateCategoryResponse.category:type_name -> proto.Category
+	3,  // 12: proto.UpdateCategoryResponse.category:type_name -> proto.Category
+	4,  // 13: proto.ForumService.GetTopics:input_type -> proto.GetTopicsRequest
+	6,  // 14: proto.ForumService.CreateTopic:input_type -> proto.CreateTopicRequest
+	8,  // 15: proto.ForumService.UpdateTopic:input_type -> proto.UpdateTopicRequest
+	10, // 16: proto.ForumService.DeleteTopic:input_type -> proto.DeleteTopicRequest
+	12, // 17: proto.ForumService.GetPosts:input_type -> proto.GetPostsRequest
+	14, // 18: proto.ForumService.GetPost:input_type -> proto.GetPostRequest
+	16, // 19: proto.ForumService.CreatePost:input_type -> proto.CreatePostRequest
+	18, // 20: proto.ForumService.UpdatePost:input_type -> proto.UpdatePostRequest
+	20, // 21: proto.ForumService.DeletePost:input_type -> proto.DeletePostRequest
+	22, // 22: proto.ForumService.GetComments:input_type -> proto.GetCommentsRequest
+	24, // 23: proto.ForumService.CreateComment:input_type -> proto.CreateCommentRequest
+	26, // 24: proto.ForumService.UpdateComment:input_type -> proto.UpdateCommentRequest
+	28, // 25: proto.ForumService.DeleteComment:input_type -> proto.DeleteCommentRequest
+	30, // 26: proto.ForumService.GetCategories:input_type -> proto.GetCategoriesRequest
+	32, // 27: proto.ForumService.CreateCategory:input_type -> proto.CreateCategoryRequest
+	34, // 28: proto.ForumService.UpdateCategory:input_type -> proto.UpdateCategoryRequest
+	36, // 29: proto.ForumService.DeleteCategory:input_type -> proto.DeleteCategoryRequest
+	5,  // 30: proto.ForumService.GetTopics:output_type -> proto.GetTopicsResponse
+	7,  // 31: proto.ForumService.CreateTopic:output_type -> proto.CreateTopicResponse
+	9,  // 32: proto.ForumService.UpdateTopic:output_type -> proto.UpdateTopicResponse
+	11, // 33: proto.ForumService.DeleteTopic:output_type -> proto.DeleteTopicResponse
+	13, // 34: proto.ForumService.GetPosts:output_type -> proto.GetPostsResponse
+	15, // 35: proto.ForumService.GetPost:output_type -> proto.GetPostResponse
+	17, // 36: proto.ForumService.CreatePost:output_type -> proto.CreatePostResponse
+	19, // 37: proto.ForumService.UpdatePost:output_type -> proto.UpdatePostResponse
+	21, // 38: proto.ForumService.DeletePost:output_type -> proto.DeletePostResponse
+	23, // 39: proto.ForumService.GetComments:output_type -> proto.GetCommentsResponse
+	25, // 40: proto.ForumService.CreateComment:output_type -> proto.CreateCommentResponse
+	27, // 41: proto.ForumService.UpdateComment:output_type -> proto.UpdateCommentResponse
+	29, // 42: proto.ForumService.DeleteComment:output_type -> proto.DeleteCommentResponse
+	31, // 43: proto.ForumService.GetCategories:output_type -> proto.GetCategoriesResponse
+	33, // 44: proto.ForumService.CreateCategory:output_type -> proto.CreateCategoryResponse
+	35, // 45: proto.ForumService.UpdateCategory:output_type -> proto.UpdateCategoryResponse
+	37, // 46: proto.ForumService.DeleteCategory:output_type -> proto.DeleteCategoryResponse
+	30, // [30:47] is the sub-list for method output_type
+	13, // [13:30] is the sub-list for method input_type
+	13, // [13:13] is the sub-list for extension type_name
+	13, // [13:13] is the sub-list for extension extendee
+	0,  // [0:13] is the sub-list for field type_name
 }
 
 func init() { file_proto_forum_proto_init() }
@@ -1132,7 +2121,7 @@ func file_proto_forum_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_forum_proto_rawDesc), len(file_proto_forum_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   18,
+			NumMessages:   38,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

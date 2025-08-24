@@ -21,6 +21,14 @@ message Post {
   string created_at = 6;
 }
 
+message Comment {
+  int64 id = 1;
+  int64 post_id = 2;
+  int64 author_id = 3;
+  string content = 4;
+  string created_at = 5;
+}
+
 message Category {
   int64 id = 1;
   string name = 2;
@@ -44,12 +52,36 @@ message CreateTopicResponse {
   Topic topic = 1;
 }
 
+message UpdateTopicRequest {
+  int64 id = 1;
+  string title = 2;
+  string description = 3;
+}
+
+message UpdateTopicResponse {
+  Topic topic = 1;
+}
+
+message DeleteTopicRequest {
+  int64 id = 1;
+}
+
+message DeleteTopicResponse {}
+
 message GetPostsRequest {
   int64 topic_id = 1;
 }
 
 message GetPostsResponse {
   repeated Post posts = 1;
+}
+
+message GetPostRequest {
+  int64 post_id = 1;
+}
+
+message GetPostResponse {
+  Post post = 1;
 }
 
 message CreatePostRequest {
@@ -63,21 +95,21 @@ message CreatePostResponse {
   Post post = 1;
 }
 
-message GetPostRequest {
-  int64 post_id = 1;
+message UpdatePostRequest {
+  int64 id = 1;
+  string title = 2;
+  string content = 3;
 }
 
-message GetPostResponse {
+message UpdatePostResponse {
   Post post = 1;
 }
 
-message Comment {
+message DeletePostRequest {
   int64 id = 1;
-  int64 post_id = 2;
-  int64 author_id = 3;
-  string content = 4;
-  string created_at = 5;
 }
+
+message DeletePostResponse {}
 
 message GetCommentsRequest {
   int64 post_id = 1;
@@ -97,12 +129,66 @@ message CreateCommentResponse {
   Comment comment = 1;
 }
 
+message UpdateCommentRequest {
+  int64 id = 1;
+  string content = 2;
+}
+
+message UpdateCommentResponse {
+  Comment comment = 1;
+}
+
+message DeleteCommentRequest {
+  int64 id = 1;
+}
+
+message DeleteCommentResponse {}
+
+message GetCategoriesRequest {}
+
+message GetCategoriesResponse {
+  repeated Category categories = 1;
+}
+
+message CreateCategoryRequest {
+  string name = 1;
+}
+
+message CreateCategoryResponse {
+  Category category = 1;
+}
+
+message UpdateCategoryRequest {
+  int64 id = 1;
+  string name = 2;
+}
+
+message UpdateCategoryResponse {
+  Category category = 1;
+}
+
+message DeleteCategoryRequest {
+  int64 id = 1;
+}
+
+message DeleteCategoryResponse {}
+
 service ForumService {
   rpc GetTopics(GetTopicsRequest) returns (GetTopicsResponse);
   rpc CreateTopic(CreateTopicRequest) returns (CreateTopicResponse);
+  rpc UpdateTopic(UpdateTopicRequest) returns (UpdateTopicResponse);
+  rpc DeleteTopic(DeleteTopicRequest) returns (DeleteTopicResponse);
   rpc GetPosts(GetPostsRequest) returns (GetPostsResponse);
-  rpc CreatePost(CreatePostRequest) returns (CreatePostResponse);
   rpc GetPost(GetPostRequest) returns (GetPostResponse);
+  rpc CreatePost(CreatePostRequest) returns (CreatePostResponse);
+  rpc UpdatePost(UpdatePostRequest) returns (UpdatePostResponse);
+  rpc DeletePost(DeletePostRequest) returns (DeletePostResponse);
   rpc GetComments(GetCommentsRequest) returns (GetCommentsResponse);
   rpc CreateComment(CreateCommentRequest) returns (CreateCommentResponse);
+  rpc UpdateComment(UpdateCommentRequest) returns (UpdateCommentResponse);
+  rpc DeleteComment(DeleteCommentRequest) returns (DeleteCommentResponse);
+  rpc GetCategories(GetCategoriesRequest) returns (GetCategoriesResponse);
+  rpc CreateCategory(CreateCategoryRequest) returns (CreateCategoryResponse);
+  rpc UpdateCategory(UpdateCategoryRequest) returns (UpdateCategoryResponse);
+  rpc DeleteCategory(DeleteCategoryRequest) returns (DeleteCategoryResponse);
 }
