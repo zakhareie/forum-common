@@ -377,102 +377,6 @@ func (*CreateUserProfileResponse) Descriptor() ([]byte, []int) {
 	return file_proto_user_proto_rawDescGZIP(), []int{6}
 }
 
-type ChangePasswordRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	OldPassword   string                 `protobuf:"bytes,2,opt,name=old_password,json=oldPassword,proto3" json:"old_password,omitempty"`
-	NewPassword   string                 `protobuf:"bytes,3,opt,name=new_password,json=newPassword,proto3" json:"new_password,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ChangePasswordRequest) Reset() {
-	*x = ChangePasswordRequest{}
-	mi := &file_proto_user_proto_msgTypes[7]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ChangePasswordRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ChangePasswordRequest) ProtoMessage() {}
-
-func (x *ChangePasswordRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_user_proto_msgTypes[7]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ChangePasswordRequest.ProtoReflect.Descriptor instead.
-func (*ChangePasswordRequest) Descriptor() ([]byte, []int) {
-	return file_proto_user_proto_rawDescGZIP(), []int{7}
-}
-
-func (x *ChangePasswordRequest) GetId() int64 {
-	if x != nil {
-		return x.Id
-	}
-	return 0
-}
-
-func (x *ChangePasswordRequest) GetOldPassword() string {
-	if x != nil {
-		return x.OldPassword
-	}
-	return ""
-}
-
-func (x *ChangePasswordRequest) GetNewPassword() string {
-	if x != nil {
-		return x.NewPassword
-	}
-	return ""
-}
-
-type ChangePasswordResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ChangePasswordResponse) Reset() {
-	*x = ChangePasswordResponse{}
-	mi := &file_proto_user_proto_msgTypes[8]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ChangePasswordResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ChangePasswordResponse) ProtoMessage() {}
-
-func (x *ChangePasswordResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_user_proto_msgTypes[8]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ChangePasswordResponse.ProtoReflect.Descriptor instead.
-func (*ChangePasswordResponse) Descriptor() ([]byte, []int) {
-	return file_proto_user_proto_rawDescGZIP(), []int{8}
-}
-
 var File_proto_user_proto protoreflect.FileDescriptor
 
 const file_proto_user_proto_rawDesc = "" +
@@ -498,12 +402,7 @@ const file_proto_user_proto_rawDesc = "" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x1a\n" +
 	"\busername\x18\x02 \x01(\tR\busername\x12\x12\n" +
 	"\x04role\x18\x03 \x01(\tR\x04role\"\x1b\n" +
-	"\x19CreateUserProfileResponse\"m\n" +
-	"\x15ChangePasswordRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x03R\x02id\x12!\n" +
-	"\fold_password\x18\x02 \x01(\tR\voldPassword\x12!\n" +
-	"\fnew_password\x18\x03 \x01(\tR\vnewPassword\"\x18\n" +
-	"\x16ChangePasswordResponse2\x89\x03\n" +
+	"\x19CreateUserProfileResponse2\x89\x03\n" +
 	"\vUserService\x128\n" +
 	"\aGetUser\x12\x15.proto.GetUserRequest\x1a\x16.proto.GetUserResponse\x12A\n" +
 	"\n" +
@@ -524,7 +423,7 @@ func file_proto_user_proto_rawDescGZIP() []byte {
 	return file_proto_user_proto_rawDescData
 }
 
-var file_proto_user_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
+var file_proto_user_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
 var file_proto_user_proto_goTypes = []any{
 	(*User)(nil),                      // 0: proto.User
 	(*GetUserRequest)(nil),            // 1: proto.GetUserRequest
@@ -534,8 +433,8 @@ var file_proto_user_proto_goTypes = []any{
 	(*CreateUserProfileRequest)(nil),  // 5: proto.CreateUserProfileRequest
 	(*CreateUserProfileResponse)(nil), // 6: proto.CreateUserProfileResponse
 	(*ChangePasswordRequest)(nil),     // 7: proto.ChangePasswordRequest
-	(*ChangePasswordResponse)(nil),    // 8: proto.ChangePasswordResponse
-	(*UpdateUserProfileRequest)(nil),  // 9: proto.UpdateUserProfileRequest
+	(*UpdateUserProfileRequest)(nil),  // 8: proto.UpdateUserProfileRequest
+	(*ChangePasswordResponse)(nil),    // 9: proto.ChangePasswordResponse
 	(*UpdateUserProfileResponse)(nil), // 10: proto.UpdateUserProfileResponse
 }
 var file_proto_user_proto_depIdxs = []int32{
@@ -545,11 +444,11 @@ var file_proto_user_proto_depIdxs = []int32{
 	3,  // 3: proto.UserService.UpdateUser:input_type -> proto.UpdateUserRequest
 	5,  // 4: proto.UserService.CreateUserProfile:input_type -> proto.CreateUserProfileRequest
 	7,  // 5: proto.UserService.ChangePassword:input_type -> proto.ChangePasswordRequest
-	9,  // 6: proto.UserService.UpdateUserProfile:input_type -> proto.UpdateUserProfileRequest
+	8,  // 6: proto.UserService.UpdateUserProfile:input_type -> proto.UpdateUserProfileRequest
 	2,  // 7: proto.UserService.GetUser:output_type -> proto.GetUserResponse
 	4,  // 8: proto.UserService.UpdateUser:output_type -> proto.UpdateUserResponse
 	6,  // 9: proto.UserService.CreateUserProfile:output_type -> proto.CreateUserProfileResponse
-	8,  // 10: proto.UserService.ChangePassword:output_type -> proto.ChangePasswordResponse
+	9,  // 10: proto.UserService.ChangePassword:output_type -> proto.ChangePasswordResponse
 	10, // 11: proto.UserService.UpdateUserProfile:output_type -> proto.UpdateUserProfileResponse
 	7,  // [7:12] is the sub-list for method output_type
 	2,  // [2:7] is the sub-list for method input_type
@@ -570,7 +469,7 @@ func file_proto_user_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_user_proto_rawDesc), len(file_proto_user_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   9,
+			NumMessages:   7,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

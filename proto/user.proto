@@ -39,13 +39,6 @@ message CreateUserProfileRequest {
 
 message CreateUserProfileResponse {}
 
-message ChangePasswordRequest {
-  int64 id = 1;
-  string old_password = 2;
-  string new_password = 3;
-}
-message ChangePasswordResponse {}
-
 service UserService {
   rpc GetUser(GetUserRequest) returns (GetUserResponse);
   rpc UpdateUser(UpdateUserRequest) returns (UpdateUserResponse);
