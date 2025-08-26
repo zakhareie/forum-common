@@ -36,6 +36,7 @@ const (
 	ForumService_CreateCategory_FullMethodName = "/proto.ForumService/CreateCategory"
 	ForumService_UpdateCategory_FullMethodName = "/proto.ForumService/UpdateCategory"
 	ForumService_DeleteCategory_FullMethodName = "/proto.ForumService/DeleteCategory"
+	ForumService_GetTopic_FullMethodName       = "/proto.ForumService/GetTopic"
 )
 
 // ForumServiceClient is the client API for ForumService service.
@@ -59,6 +60,7 @@ type ForumServiceClient interface {
 	CreateCategory(ctx context.Context, in *CreateCategoryRequest, opts ...grpc.CallOption) (*CreateCategoryResponse, error)
 	UpdateCategory(ctx context.Context, in *UpdateCategoryRequest, opts ...grpc.CallOption) (*UpdateCategoryResponse, error)
 	DeleteCategory(ctx context.Context, in *DeleteCategoryRequest, opts ...grpc.CallOption) (*DeleteCategoryResponse, error)
+	GetTopic(ctx context.Context, in *GetTopicRequest, opts ...grpc.CallOption) (*GetTopicResponse, error)
 }
 
 type forumServiceClient struct {
@@ -239,6 +241,16 @@ func (c *forumServiceClient) DeleteCategory(ctx context.Context, in *DeleteCateg
 	return out, nil
 }
 
+func (c *forumServiceClient) GetTopic(ctx context.Context, in *GetTopicRequest, opts ...grpc.CallOption) (*GetTopicResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTopicResponse)
+	err := c.cc.Invoke(ctx, ForumService_GetTopic_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ForumServiceServer is the server API for ForumService service.
 // All implementations must embed UnimplementedForumServiceServer
 // for forward compatibility.
@@ -260,6 +272,7 @@ type ForumServiceServer interface {
 	CreateCategory(context.Context, *CreateCategoryRequest) (*CreateCategoryResponse, error)
 	UpdateCategory(context.Context, *UpdateCategoryRequest) (*UpdateCategoryResponse, error)
 	DeleteCategory(context.Context, *DeleteCategoryRequest) (*DeleteCategoryResponse, error)
+	GetTopic(context.Context, *GetTopicRequest) (*GetTopicResponse, error)
 	mustEmbedUnimplementedForumServiceServer()
 }
 
@@ -320,6 +333,9 @@ func (UnimplementedForumServiceServer) UpdateCategory(context.Context, *UpdateCa
 }
 func (UnimplementedForumServiceServer) DeleteCategory(context.Context, *DeleteCategoryRequest) (*DeleteCategoryResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteCategory not implemented")
+}
+func (UnimplementedForumServiceServer) GetTopic(context.Context, *GetTopicRequest) (*GetTopicResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetTopic not implemented")
 }
 func (UnimplementedForumServiceServer) mustEmbedUnimplementedForumServiceServer() {}
 func (UnimplementedForumServiceServer) testEmbeddedByValue()                      {}
@@ -648,6 +664,24 @@ func _ForumService_DeleteCategory_Handler(srv interface{}, ctx context.Context, 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ForumService_GetTopic_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTopicRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ForumServiceServer).GetTopic(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ForumService_GetTopic_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ForumServiceServer).GetTopic(ctx, req.(*GetTopicRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // ForumService_ServiceDesc is the grpc.ServiceDesc for ForumService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -722,6 +756,10 @@ var ForumService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DeleteCategory",
 			Handler:    _ForumService_DeleteCategory_Handler,
+		},
+		{
+			MethodName: "GetTopic",
+			Handler:    _ForumService_GetTopic_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

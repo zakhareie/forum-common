@@ -34,6 +34,14 @@ message Category {
   string name = 2;
 }
 
+message GetTopicRequest {
+  int64 id = 1;
+}
+
+message GetTopicResponse {
+  Topic topic = 1;
+}
+
 message GetTopicsRequest {
   int64 category_id = 1;
 }
@@ -191,4 +199,5 @@ service ForumService {
   rpc CreateCategory(CreateCategoryRequest) returns (CreateCategoryResponse);
   rpc UpdateCategory(UpdateCategoryRequest) returns (UpdateCategoryResponse);
   rpc DeleteCategory(DeleteCategoryRequest) returns (DeleteCategoryResponse);
+  rpc GetTopic(GetTopicRequest) returns (GetTopicResponse);
 }
