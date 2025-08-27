@@ -39,8 +39,14 @@ message GetChatHistoryResponse {
   repeated ChatMessage messages = 1;
 }
 
+message DeleteMessageRequest {
+  int64 id = 1;
+}
+message DeleteMessageResponse {}
+
 service ChatService {
   rpc SendMessage(SendMessageRequest) returns (SendMessageResponse);
   rpc GetMessages(GetMessagesRequest) returns (GetMessagesResponse);
   rpc GetChatHistory(GetChatHistoryRequest) returns (GetChatHistoryResponse);
+  rpc DeleteMessage(DeleteMessageRequest) returns (DeleteMessageResponse);
 }

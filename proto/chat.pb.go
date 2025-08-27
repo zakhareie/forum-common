@@ -385,6 +385,86 @@ func (x *GetChatHistoryResponse) GetMessages() []*ChatMessage {
 	return nil
 }
 
+type DeleteMessageRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeleteMessageRequest) Reset() {
+	*x = DeleteMessageRequest{}
+	mi := &file_proto_chat_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeleteMessageRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteMessageRequest) ProtoMessage() {}
+
+func (x *DeleteMessageRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_chat_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteMessageRequest.ProtoReflect.Descriptor instead.
+func (*DeleteMessageRequest) Descriptor() ([]byte, []int) {
+	return file_proto_chat_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *DeleteMessageRequest) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+type DeleteMessageResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeleteMessageResponse) Reset() {
+	*x = DeleteMessageResponse{}
+	mi := &file_proto_chat_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeleteMessageResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteMessageResponse) ProtoMessage() {}
+
+func (x *DeleteMessageResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_chat_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteMessageResponse.ProtoReflect.Descriptor instead.
+func (*DeleteMessageResponse) Descriptor() ([]byte, []int) {
+	return file_proto_chat_proto_rawDescGZIP(), []int{8}
+}
+
 var File_proto_chat_proto protoreflect.FileDescriptor
 
 const file_proto_chat_proto_rawDesc = "" +
@@ -411,11 +491,15 @@ const file_proto_chat_proto_rawDesc = "" +
 	"\x15GetChatHistoryRequest\x12\x14\n" +
 	"\x05limit\x18\x01 \x01(\x05R\x05limit\"H\n" +
 	"\x16GetChatHistoryResponse\x12.\n" +
-	"\bmessages\x18\x01 \x03(\v2\x12.proto.ChatMessageR\bmessages2\xe8\x01\n" +
+	"\bmessages\x18\x01 \x03(\v2\x12.proto.ChatMessageR\bmessages\"&\n" +
+	"\x14DeleteMessageRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\"\x17\n" +
+	"\x15DeleteMessageResponse2\xb4\x02\n" +
 	"\vChatService\x12D\n" +
 	"\vSendMessage\x12\x19.proto.SendMessageRequest\x1a\x1a.proto.SendMessageResponse\x12D\n" +
 	"\vGetMessages\x12\x19.proto.GetMessagesRequest\x1a\x1a.proto.GetMessagesResponse\x12M\n" +
-	"\x0eGetChatHistory\x12\x1c.proto.GetChatHistoryRequest\x1a\x1d.proto.GetChatHistoryResponseB\bZ\x06proto/b\x06proto3"
+	"\x0eGetChatHistory\x12\x1c.proto.GetChatHistoryRequest\x1a\x1d.proto.GetChatHistoryResponse\x12J\n" +
+	"\rDeleteMessage\x12\x1b.proto.DeleteMessageRequest\x1a\x1c.proto.DeleteMessageResponseB\bZ\x06proto/b\x06proto3"
 
 var (
 	file_proto_chat_proto_rawDescOnce sync.Once
@@ -429,7 +513,7 @@ func file_proto_chat_proto_rawDescGZIP() []byte {
 	return file_proto_chat_proto_rawDescData
 }
 
-var file_proto_chat_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
+var file_proto_chat_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
 var file_proto_chat_proto_goTypes = []any{
 	(*ChatMessage)(nil),            // 0: proto.ChatMessage
 	(*SendMessageRequest)(nil),     // 1: proto.SendMessageRequest
@@ -438,6 +522,8 @@ var file_proto_chat_proto_goTypes = []any{
 	(*GetMessagesResponse)(nil),    // 4: proto.GetMessagesResponse
 	(*GetChatHistoryRequest)(nil),  // 5: proto.GetChatHistoryRequest
 	(*GetChatHistoryResponse)(nil), // 6: proto.GetChatHistoryResponse
+	(*DeleteMessageRequest)(nil),   // 7: proto.DeleteMessageRequest
+	(*DeleteMessageResponse)(nil),  // 8: proto.DeleteMessageResponse
 }
 var file_proto_chat_proto_depIdxs = []int32{
 	0, // 0: proto.SendMessageResponse.message:type_name -> proto.ChatMessage
@@ -446,11 +532,13 @@ var file_proto_chat_proto_depIdxs = []int32{
 	1, // 3: proto.ChatService.SendMessage:input_type -> proto.SendMessageRequest
 	3, // 4: proto.ChatService.GetMessages:input_type -> proto.GetMessagesRequest
 	5, // 5: proto.ChatService.GetChatHistory:input_type -> proto.GetChatHistoryRequest
-	2, // 6: proto.ChatService.SendMessage:output_type -> proto.SendMessageResponse
-	4, // 7: proto.ChatService.GetMessages:output_type -> proto.GetMessagesResponse
-	6, // 8: proto.ChatService.GetChatHistory:output_type -> proto.GetChatHistoryResponse
-	6, // [6:9] is the sub-list for method output_type
-	3, // [3:6] is the sub-list for method input_type
+	7, // 6: proto.ChatService.DeleteMessage:input_type -> proto.DeleteMessageRequest
+	2, // 7: proto.ChatService.SendMessage:output_type -> proto.SendMessageResponse
+	4, // 8: proto.ChatService.GetMessages:output_type -> proto.GetMessagesResponse
+	6, // 9: proto.ChatService.GetChatHistory:output_type -> proto.GetChatHistoryResponse
+	8, // 10: proto.ChatService.DeleteMessage:output_type -> proto.DeleteMessageResponse
+	7, // [7:11] is the sub-list for method output_type
+	3, // [3:7] is the sub-list for method input_type
 	3, // [3:3] is the sub-list for extension type_name
 	3, // [3:3] is the sub-list for extension extendee
 	0, // [0:3] is the sub-list for field type_name
@@ -467,7 +555,7 @@ func file_proto_chat_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_chat_proto_rawDesc), len(file_proto_chat_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   7,
+			NumMessages:   9,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
